@@ -1,0 +1,19 @@
+
+
+TODO:
+
+- Add cached lookups for forms and views names and Guids
+- Add authorization checking logic that applies rules
+- Define authorization rules
+- Add configuration base rule provider using web.config or separate config file
+
+- Add return 403 option if not authorized page not specified.
+- Add ignored ??
+- Add smartobject execution.
+- Add smartbox based rule provider.
+
+Ongoing:
+
+- Unit test
+- Document API
+- Document WIKI
