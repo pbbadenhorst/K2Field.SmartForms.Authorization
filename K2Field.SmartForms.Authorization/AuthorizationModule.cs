@@ -207,10 +207,12 @@ namespace K2Field.SmartForms.Authorization
 			var permissionType = default(PermissionType);
 			var identities = new string[] { fqn };
 
+			// TODO : return results of rules
 			foreach (var rule in rules)
 			{
 				if (rule.TryApply(identities, type, name, out permissionType))
 				{
+					// 
 				}
 			}
 
