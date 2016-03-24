@@ -84,6 +84,7 @@
   <ItemGroup>
     <None Include="FieldKey.snk" />
     <None Include="packages.config" />
+    <None Include="SmartObjects\K2Field.SmartForms.Authorization.Rules.sodx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\tables.sql" />

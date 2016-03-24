@@ -7,8 +7,8 @@ namespace K2Field.SmartForms.Authorization
 	{
 		public SmartObjectRuleProvider()
 		{
-			RulesSmartObjectName = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Name"] ?? "K2Field.SmartForms.Authorization.Rules";
-			RulesSmartObjectMethod = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Method"] ?? "List";
+			RulesSmartObjectName = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Name"] ?? "K2Field_SmartForms_Authorization_Rules";
+			RulesSmartObjectMethod = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Method"] ?? "GetList";
 		}
 
 		private string RulesSmartObjectName { get; }
