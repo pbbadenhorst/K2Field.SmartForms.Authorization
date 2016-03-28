@@ -38,6 +38,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>FieldKey.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
   </ItemGroup>
@@ -54,13 +60,20 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="SecurityModuleTests.cs" />
+    <Compile Include="AuthorizationRulesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="FieldKey.snk" />
     <None Include="test1.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\K2Field.SmartForms.Authorization\K2Field.SmartForms.Authorization.csproj">
+      <Project>{778bb769-4e2b-48fd-8e2e-ccc4a5c9c4db}</Project>
+      <Name>K2Field.SmartForms.Authorization</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

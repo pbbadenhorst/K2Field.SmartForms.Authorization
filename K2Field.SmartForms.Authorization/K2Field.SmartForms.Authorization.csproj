@@ -91,6 +91,14 @@
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartForms\Client\Client.csproj">
+      <Project>{40282ab3-bc55-49b0-95ba-779c3d453a23}</Project>
+      <Name>Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartForms\Management\Management.csproj">
+      <Project>{d2d96439-de46-4e74-80ed-69bd25a0d98b}</Project>
+      <Name>Management</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartObjects\Client\SourceCode.SmartObjects.Client.csproj">
       <Project>{a7d3f21a-9b22-4553-9642-cfd899a63ab0}</Project>
       <Name>SourceCode.SmartObjects.Client</Name>

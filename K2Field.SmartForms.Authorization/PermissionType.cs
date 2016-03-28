@@ -1,6 +1,6 @@
 ﻿namespace K2Field.SmartForms.Authorization
 {
-	internal enum PermissionType
+	public enum PermissionType
 	{
 		NotApplicable = 0,
 		Allow = 1,
