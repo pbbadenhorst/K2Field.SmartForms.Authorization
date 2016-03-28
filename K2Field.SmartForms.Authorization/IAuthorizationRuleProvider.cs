@@ -1,6 +1,6 @@
 ﻿namespace K2Field.SmartForms.Authorization
 {
-	interface IAuthorizationRuleProvider
+	public interface IAuthorizationRuleProvider
 	{
 		/// <summary>
 		/// Get the current set of authorization rules from the provider.

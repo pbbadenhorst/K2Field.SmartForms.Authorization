@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Resources;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
@@ -36,3 +37,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("4.0.0.0")]
 
 [assembly: NeutralResourcesLanguage("en-us")]
+
+//[assembly: InternalsVisibleTo("K2Field.SmartForms.Authorization.UTests, PublicKey=002400000480000094000000060200000024000052534131000400000100010045368f3ca9e0e80125d8894ff2df68bb1472d24e8235ba922f5b20395669312291c1b949756157de2cfa5080d69009b207077673c98f294089b6fddd8936763290f388f8b728ce5807b9d719fc5b27022df0f44efba6efd829d95eda59f2879145bf9b9a65a1b96d20e5a076e622e9afe5faf5396a35a9f3827aa95f18b446e4")]

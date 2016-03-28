@@ -128,7 +128,7 @@ namespace K2Field.SmartForms.Authorization
 			string guidString;
 			string url = request.FilePath;
 			string fqn = ConnectionClass.GetCurrentUser();
-
+			
 			if (!string.IsNullOrEmpty(url))
 			{
 				// Dont need to check vanity urls because the UrlWriter module already rewrote them to the actual urls
@@ -143,11 +143,13 @@ namespace K2Field.SmartForms.Authorization
 				{
 					bool isAuthorized = false;
 					string name = request.QueryString["_Name"];
+					string action = request.Form["action"];
+
 					if (!string.IsNullOrEmpty(name))
 					{
 						isAuthorized = isFormUrl
-							? IsAuthorized(fqn, SecurableTypes.Form, name)
-							: IsAuthorized(fqn, SecurableTypes.View, name);
+							? IsAuthorized(fqn, ResourceTypes.Form, name)
+							: IsAuthorized(fqn, ResourceTypes.View, name);
 						Log("Debug", "Checking '{0}' for '{1}'", url, fqn);
 					}
 					else
@@ -157,8 +159,8 @@ namespace K2Field.SmartForms.Authorization
 						if (!string.IsNullOrEmpty(guidString) && Guid.TryParse(guidString, out guid))
 						{
 							isAuthorized = isFormUrl
-								? IsAuthorized(fqn, SecurableTypes.Form, guid)
-								: IsAuthorized(fqn, SecurableTypes.View, guid);
+								? IsAuthorized(fqn, ResourceTypes.Form, guid)
+								: IsAuthorized(fqn, ResourceTypes.View, guid);
 
 							if (isAuthorized)
 								Log("Info", "Authorization success. User='{0}', Type={1}, ID={2}", url, isFormUrl ? "Form" : "View", fqn);
@@ -201,30 +203,55 @@ namespace K2Field.SmartForms.Authorization
 			return true;
 		}
 
-		private static bool IsAuthorized(string fqn, SecurableTypes type, string name)
+		private static bool IsAuthorized(string fqn, ResourceTypes type, string name)
 		{
 			var rules = AuthorizationRuleProvider.GetRules();
-			var permissionType = default(PermissionType);
-			var identities = new string[] { fqn };
+			var identities = new string[] { fqn }; // TODO: Include the FQNs of the user's groups and roles
 
-			// TODO : return results of rules
-			foreach (var rule in rules)
-			{
-				if (rule.TryApply(identities, type, name, out permissionType))
-				{
-					// 
-				}
-			}
-
-			if (name.Equals("Restricted", StringComparison.OrdinalIgnoreCase))
-				return false;
-			else
-				return true;
+			return rules.IsAuthorized(name, type, identities);
 		}
 
-		private static bool IsAuthorized(string fqn, SecurableTypes type, Guid guid)
+		private static bool IsAuthorized(string fqn, ResourceTypes type, Guid guid)
 		{
-			return true;
+			var rules = AuthorizationRuleProvider.GetRules();
+			var identities = new string[] { fqn }; // TODO: Include the FQNs of the user's groups and roles
+
+			var name = default(string);
+			var asAppPool = ConnectionClass.ConnectAsAppPool;
+			if (!asAppPool) ConnectionClass.ConnectAsAppPool = true;
+			var client = ConnectionClass.GetFormsClient();
+			if (!asAppPool) ConnectionClass.ConnectAsAppPool = false;
+
+			switch (type)
+			{
+				case ResourceTypes.View:
+					{
+						// Uses internal caches
+						var details = client.GetForm(guid);
+						if (details != null)
+						{
+							name = details.Name;
+						}
+					}
+					break;
+				case ResourceTypes.Form:
+					{
+						// Uses internal caches
+						var details = client.GetForm(guid);
+						if (details != null)
+						{
+							name = details.Name;
+						}
+					}
+					break;
+				default:
+					throw new NotSupportedException(type.ToString()); 
+			}
+
+			if (!string.IsNullOrEmpty(name))
+				return rules.IsAuthorized(name, type, identities);
+			else
+				return false;
 		}
 
 		#endregion

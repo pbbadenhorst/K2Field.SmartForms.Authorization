@@ -3,7 +3,7 @@
 namespace K2Field.SmartForms.Authorization
 {
 	[Flags]
-	internal enum SecurableTypes
+	public enum ResourceTypes
 	{
 		None = 0,
 		View = 1,

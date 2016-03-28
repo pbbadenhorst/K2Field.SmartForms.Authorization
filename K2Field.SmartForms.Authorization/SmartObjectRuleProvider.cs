@@ -31,29 +31,29 @@ namespace K2Field.SmartForms.Authorization
 
 				using (var reader = client.ExecuteListReader(smo))
 				{
-					var ordinalIdentity = reader.GetOrdinal("Identity");
-					var ordinalSecurableName = reader.GetOrdinal("SecurableName");
-					var ordinalSecurableType = reader.GetOrdinal("SecurableType");
+					var ordinalIdentities = reader.GetOrdinal("Identities");
+					var ordinalResourceName = reader.GetOrdinal("ResourceName");
+					var ordinalResourceType = reader.GetOrdinal("ResourceType");
 					var ordinalAllow = reader.GetOrdinal("Allow");
 
-					string identity;
-					string securableName;
-					int securableType;
+					string resourceName;
+					int resourceType;
 					bool allow;
+					string identities;
 
 					while (reader.Read())
 					{
 
-						if (!reader.IsDBNull(ordinalIdentity)) identity = reader.GetString(ordinalIdentity); else continue;
-						if (!reader.IsDBNull(ordinalSecurableName)) securableName = reader.GetString(ordinalSecurableName); else continue;
-						if (!reader.IsDBNull(ordinalSecurableType)) securableType = reader.GetInt32(ordinalSecurableType); else continue;
+						if (!reader.IsDBNull(ordinalResourceName)) resourceName = reader.GetString(ordinalResourceName); else continue;
+						if (!reader.IsDBNull(ordinalResourceType)) resourceType = reader.GetInt32(ordinalResourceType); else continue;
 						if (!reader.IsDBNull(ordinalAllow)) allow = reader.GetBoolean(ordinalAllow); else continue;
+						if (!reader.IsDBNull(ordinalIdentities)) identities = reader.GetString(ordinalIdentities); else continue;
 
 						var rule = new AuthorizationRule(
-							identity,
-							securableName,
-							(SecurableTypes)securableType,
-							allow?PermissionType.Allow : PermissionType.Deny
+							resourceName,
+							(ResourceTypes)resourceType,
+							allow ? PermissionType.Allow : PermissionType.Deny,
+							identities.Split(',', ';')
 							);
 						rules.Add(rule);
 					}
