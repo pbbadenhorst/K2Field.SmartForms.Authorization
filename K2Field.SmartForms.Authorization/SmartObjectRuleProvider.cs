@@ -32,25 +32,25 @@ namespace K2Field.SmartForms.Authorization
 				using (var reader = client.ExecuteListReader(smo))
 				{
 					var ordinalIdentities = reader.GetOrdinal("Identities");
-					var ordinalResourceName = reader.GetOrdinal("ResourceName");
+					var ordinalResources = reader.GetOrdinal("Resources");
 					var ordinalResourceType = reader.GetOrdinal("ResourceType");
 					var ordinalAllow = reader.GetOrdinal("Allow");
 
-					string resourceName;
-					int resourceType;
+					string resources;
+					long resourceType;
 					bool allow;
 					string identities;
 
 					while (reader.Read())
 					{
 
-						if (!reader.IsDBNull(ordinalResourceName)) resourceName = reader.GetString(ordinalResourceName); else continue;
-						if (!reader.IsDBNull(ordinalResourceType)) resourceType = reader.GetInt32(ordinalResourceType); else continue;
+						if (!reader.IsDBNull(ordinalResources)) resources = reader.GetString(ordinalResources); else continue;
+						if (!reader.IsDBNull(ordinalResourceType)) resourceType = reader.GetInt64(ordinalResourceType); else continue;
 						if (!reader.IsDBNull(ordinalAllow)) allow = reader.GetBoolean(ordinalAllow); else continue;
 						if (!reader.IsDBNull(ordinalIdentities)) identities = reader.GetString(ordinalIdentities); else continue;
 
 						var rule = new AuthorizationRule(
-							resourceName,
+							resources.Split(',', ';'),
 							(ResourceTypes)resourceType,
 							allow ? PermissionType.Allow : PermissionType.Deny,
 							identities.Split(',', ';')

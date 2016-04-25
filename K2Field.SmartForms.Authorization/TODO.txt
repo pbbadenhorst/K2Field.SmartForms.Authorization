@@ -2,7 +2,7 @@
 
 TODO:
 
-- Add cached lookups for forms and views names and Guids
+- Add cached lookups for forms and views names and Guids (if needed beyond build in caching)
 - Add authorization checking logic that applies rules
 - Define authorization rules
 - Add configuration base rule provider using web.config or separate config file
