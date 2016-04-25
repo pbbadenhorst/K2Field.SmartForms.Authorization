@@ -40,13 +40,15 @@ namespace K2Field.SmartForms.Authorization
 
 		#region Properties
 
-		internal static AuthorizationRuleCollection AuthorizationRules
+		internal AuthorizationRuleCollection AuthorizationRules
 		{
 			get
 			{
 				return AuthorizationRuleProvider.GetRules();
 			}
 		}
+
+		internal static IIdentityResolver IdentityResolver { get; }
 
 		internal static IAuthorizationRuleProvider AuthorizationRuleProvider { get; }
 
@@ -65,13 +67,18 @@ namespace K2Field.SmartForms.Authorization
 			_notAuthorizedUrl = (ConfigurationManager.AppSettings["UnauthorisedAccessPath"] ?? "~/NotAuthorised.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
 
 
-			//var typeName = (ConfigurationManager.AppSettings["AuthorizationProvider"] ?? "K2Field.SmartForms.Authorization.ConfigurationRuleProvider");
-			var typeName = (ConfigurationManager.AppSettings["AuthorizationProvider"] ?? "K2Field.SmartForms.Authorization.SmartObjectRuleProvider");
+			//var typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.RuleProvider"] ?? "K2Field.SmartForms.Authorization.ConfigurationRuleProvider");
+			var typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.RuleProvider"] ?? "K2Field.SmartForms.Authorization.SmartObjectRuleProvider");
+
 
 			Log("Info", "Creating authorization rule provider: {0}", typeName);
 
 			var type = Type.GetType(typeName);
 			AuthorizationRuleProvider = Activator.CreateInstance(type) as IAuthorizationRuleProvider;
+
+			typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.IdentityProvider"] ?? "K2Field.SmartForms.Authorization.AuthorizationIdentityProvider");
+			type = Type.GetType(typeName);
+			IdentityResolver = Activator.CreateInstance(type) as IIdentityResolver;
 		}
 
 		#endregion
@@ -143,14 +150,12 @@ namespace K2Field.SmartForms.Authorization
 				{
 					bool isAuthorized = false;
 					string name = request.QueryString["_Name"];
-					string action = request.Form["action"];
 
 					if (!string.IsNullOrEmpty(name))
 					{
 						isAuthorized = isFormUrl
 							? IsAuthorized(fqn, ResourceTypes.Form, name)
 							: IsAuthorized(fqn, ResourceTypes.View, name);
-						Log("Debug", "Checking '{0}' for '{1}'", url, fqn);
 					}
 					else
 					{
@@ -162,10 +167,6 @@ namespace K2Field.SmartForms.Authorization
 								? IsAuthorized(fqn, ResourceTypes.Form, guid)
 								: IsAuthorized(fqn, ResourceTypes.View, guid);
 
-							if (isAuthorized)
-								Log("Info", "Authorization success. User='{0}', Type={1}, ID={2}", url, isFormUrl ? "Form" : "View", fqn);
-							else
-								Log("Warning", "Authorization FAILED. User='{0}', Type={1}, ID={2}", url, isFormUrl ? "Form" : "View", fqn); 
 						}
 					}
 					return isAuthorized;
@@ -199,28 +200,29 @@ namespace K2Field.SmartForms.Authorization
 				//#endregion
 			}
 
-			// Authorized by default
+			// Anything not handled by previous cases are considered authorized by default
 			return true;
 		}
 
 		private static bool IsAuthorized(string fqn, ResourceTypes type, string name)
 		{
 			var rules = AuthorizationRuleProvider.GetRules();
-			var identities = new string[] { fqn }; // TODO: Include the FQNs of the user's groups and roles
+
+			var identities = new string[] { fqn };
 
 			return rules.IsAuthorized(name, type, identities);
 		}
 
 		private static bool IsAuthorized(string fqn, ResourceTypes type, Guid guid)
 		{
-			var rules = AuthorizationRuleProvider.GetRules();
-			var identities = new string[] { fqn }; // TODO: Include the FQNs of the user's groups and roles
-
 			var name = default(string);
 			var asAppPool = ConnectionClass.ConnectAsAppPool;
 			if (!asAppPool) ConnectionClass.ConnectAsAppPool = true;
 			var client = ConnectionClass.GetFormsClient();
 			if (!asAppPool) ConnectionClass.ConnectAsAppPool = false;
+
+			var identities = IdentityResolver.GetIdentities(fqn);
+			var rules = AuthorizationRuleProvider.GetRules();
 
 			switch (type)
 			{
