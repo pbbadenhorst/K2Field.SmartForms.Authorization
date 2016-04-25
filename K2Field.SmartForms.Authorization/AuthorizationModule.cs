@@ -11,7 +11,7 @@
 //     <!-- snip -->
 //    
 //     <!-- Field Authorization module -->
-//     <add name = "FieldAuthorizationModule" type="K2Field.SmartForms.Authorization.SecurityModule, K2Field.SmartForms.Authorization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74c3737efa394b02" />
+//     <add name = "FieldAuthorizationModule" type="K2Field.SmartForms.Authorization.AuthorizationModule, K2Field.SmartForms.Authorization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74c3737efa394b02" />
 //    </modules>
 //    <!-- snip -->
 //   <//system.webServer>
@@ -44,13 +44,13 @@ namespace K2Field.SmartForms.Authorization
 		{
 			get
 			{
-				return AuthorizationRuleProvider.GetRules();
+				return RuleProvider.GetRules();
 			}
 		}
 
-		internal static IIdentityResolver IdentityResolver { get; }
+		internal static IAuthorizationIdentityResolver IdentityResolver { get; }
 
-		internal static IAuthorizationRuleProvider AuthorizationRuleProvider { get; }
+		internal static IAuthorizationRuleProvider RuleProvider { get; }
 
 		#endregion
 
@@ -74,11 +74,11 @@ namespace K2Field.SmartForms.Authorization
 			Log("Info", "Creating authorization rule provider: {0}", typeName);
 
 			var type = Type.GetType(typeName);
-			AuthorizationRuleProvider = Activator.CreateInstance(type) as IAuthorizationRuleProvider;
+			RuleProvider = Activator.CreateInstance(type) as IAuthorizationRuleProvider;
 
-			typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.IdentityProvider"] ?? "K2Field.SmartForms.Authorization.AuthorizationIdentityProvider");
+			typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.IdentityProvider"] ?? "K2Field.SmartForms.Authorization.AuthorizationIdentityResolver");
 			type = Type.GetType(typeName);
-			IdentityResolver = Activator.CreateInstance(type) as IIdentityResolver;
+			IdentityResolver = Activator.CreateInstance(type) as IAuthorizationIdentityResolver;
 		}
 
 		#endregion
@@ -206,7 +206,7 @@ namespace K2Field.SmartForms.Authorization
 
 		private static bool IsAuthorized(string fqn, ResourceTypes type, string name)
 		{
-			var rules = AuthorizationRuleProvider.GetRules();
+			var rules = RuleProvider.GetRules();
 
 			var identities = new string[] { fqn };
 
@@ -222,7 +222,7 @@ namespace K2Field.SmartForms.Authorization
 			if (!asAppPool) ConnectionClass.ConnectAsAppPool = false;
 
 			var identities = IdentityResolver.GetIdentities(fqn);
-			var rules = AuthorizationRuleProvider.GetRules();
+			var rules = RuleProvider.GetRules();
 
 			switch (type)
 			{

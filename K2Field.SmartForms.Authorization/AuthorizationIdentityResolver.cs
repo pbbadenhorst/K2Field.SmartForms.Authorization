@@ -1,6 +1,6 @@
 ﻿namespace K2Field.SmartForms.Authorization
 {
-	public class AuthorizationIdentityResolver : IIdentityResolver
+	public class AuthorizationIdentityResolver : IAuthorizationIdentityResolver
 	{
 		public string[] GetIdentities(string userFqn)
 		{
