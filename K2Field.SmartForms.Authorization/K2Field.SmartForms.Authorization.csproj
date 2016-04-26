@@ -44,6 +44,8 @@
     <Reference Include="SourceCode.Forms">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\K2 blackpearl\K2 smartforms Designer\bin\SourceCode.Forms.dll</HintPath>
     </Reference>
+    <Reference Include="SourceCode.Forms.Client, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d, processorArchitecture=MSIL" />
+    <Reference Include="SourceCode.Forms.Management, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d, processorArchitecture=MSIL" />
     <Reference Include="SourceCode.HostClientAPI, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\Program Files (x86)\K2 blackpearl\Bin\SourceCode.HostClientAPI.dll</HintPath>
@@ -64,11 +66,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationIdentityResolver.cs" />
     <Compile Include="AuthorizationRule.cs" />
     <Compile Include="AuthorizationRuleCollection.cs" />
     <Compile Include="ConfigurationRuleProvider.cs" />
     <Compile Include="Helpers\Logfile.cs" />
     <Compile Include="IAuthorizationRuleProvider.cs" />
+    <Compile Include="IAuthorizationIdentityResolver.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PermissionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,14 +95,6 @@
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartForms\Client\Client.csproj">
-      <Project>{40282ab3-bc55-49b0-95ba-779c3d453a23}</Project>
-      <Name>Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartForms\Management\Management.csproj">
-      <Project>{d2d96439-de46-4e74-80ed-69bd25a0d98b}</Project>
-      <Name>Management</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\..\..\..\Projects\Dev\010\014\R1\SmartObjects\Client\SourceCode.SmartObjects.Client.csproj">
       <Project>{a7d3f21a-9b22-4553-9642-cfd899a63ab0}</Project>
       <Name>SourceCode.SmartObjects.Client</Name>
