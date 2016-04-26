@@ -3,64 +3,64 @@
   <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
     <ServiceElements>
       <ServiceElementDefinition>
-        <Guid>13c76d367afd4dd5a8bd33d6e0d44ea6</Guid>
+        <Guid>6bb3629431584682a5b097f388c00f20</Guid>
         <Name>serviceinstance</Name>
         <Value>e5609413-d844-4325-98c3-db3cacbd406d</Value>
       </ServiceElementDefinition>
       <ServiceElementDefinition>
-        <Guid>98aa31d28fa647bd944d01a03ffd24d8</Guid>
+        <Guid>9fc1ece22c194be9b298f859e8542a9f</Guid>
         <Name>serviceobject</Name>
         <Value>K2Field_SmartForms_Authorization_Rules</Value>
       </ServiceElementDefinition>
     </ServiceElements>
-    <Guid>f92ae6991f71462c823aeac43aadfa4c</Guid>
+    <Guid>775f57eccaf24bf4a2585a51229f7bcc</Guid>
     <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
   </Metadata>
   <Properties>
     <SmartPropertyDefinition Type="SourceCode.SmartObjects.Authoring.SmartPropertyDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>a4607d08479e45588ab60dfa8023cee2</Guid>
+        <Guid>4ee741c45408452999fdeb84929b6ce7</Guid>
         <DisplayName>ID</DisplayName>
         <Description>The key used to identify a specific record.</Description>
       </Metadata>
-      <Guid>83da5773a0584038ab0f44373e72f620</Guid>
+      <Guid>810fc747c81e48c08bf1ddd37d8c91ea</Guid>
       <Name>ID</Name>
       <Type>Autonumber</Type>
       <IsUnique>1</IsUnique>
     </SmartPropertyDefinition>
     <SmartPropertyDefinition Type="SourceCode.SmartObjects.Authoring.SmartPropertyDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>795acb61194f48c8920759438d101ff0</Guid>
+        <Guid>f4f3c38d090b48febe2cef9b5bfdbff9</Guid>
         <DisplayName>Identities</DisplayName>
       </Metadata>
-      <Guid>f4de8d1627e24e7f9d8f68016fc5b377</Guid>
+      <Guid>aa7b831bf7a943f2a4d1ef1ca0425247</Guid>
       <Name>Identities</Name>
       <Type>Text</Type>
     </SmartPropertyDefinition>
     <SmartPropertyDefinition Type="SourceCode.SmartObjects.Authoring.SmartPropertyDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>15e7482260fd43e1852b2f148761a19c</Guid>
-        <DisplayName>ResourceName</DisplayName>
+        <Guid>24012467e0d1466480c63cef07a2ab96</Guid>
+        <DisplayName>Resources</DisplayName>
       </Metadata>
-      <Guid>66effeb3c33e470ba8a17532de9e0f3f</Guid>
-      <Name>ResourceName</Name>
+      <Guid>22a5e1ef7c3b4e76a369dad31d95724e</Guid>
+      <Name>Resources</Name>
       <Type>Text</Type>
     </SmartPropertyDefinition>
     <SmartPropertyDefinition Type="SourceCode.SmartObjects.Authoring.SmartPropertyDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>83882df6c6c24accad1924d052401f54</Guid>
+        <Guid>85ede36858fd4edaa17046226f6485b1</Guid>
         <DisplayName>ResourceType</DisplayName>
       </Metadata>
-      <Guid>22a821992f3e4b888753893f33d7384d</Guid>
+      <Guid>1f577e1b9f45409fae6adfc6d2e3ddfe</Guid>
       <Name>ResourceType</Name>
       <Type>Number</Type>
     </SmartPropertyDefinition>
     <SmartPropertyDefinition Type="SourceCode.SmartObjects.Authoring.SmartPropertyDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>1566d2063c974f98b1637918993c6aca</Guid>
+        <Guid>a139ec0225af45cdac269ae2215dc8be</Guid>
         <DisplayName>Allow</DisplayName>
       </Metadata>
-      <Guid>af7ba97feaaa43e1b3c20fa33b48401b</Guid>
+      <Guid>275e2b93532044f9bc7e9f870298207a</Guid>
       <Name>Allow</Name>
       <Type>YesNo</Type>
     </SmartPropertyDefinition>
@@ -68,7 +68,7 @@
   <Methods>
     <SmartMethodDefinition Type="SourceCode.SmartObjects.Authoring.SmartMethodDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>e420662cce084a67a4269559abc38ae6</Guid>
+        <Guid>d21feae71c6d485881fca482311849f0</Guid>
         <DisplayName>Create</DisplayName>
         <Description>This method creates a new entry</Description>
       </Metadata>
@@ -76,7 +76,7 @@
         <ExecutionBlock>
           <ServiceInstance>
             <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-              <Guid>f954f3a84cee4b9f9ea8cd5703e33cf7</Guid>
+              <Guid>d6abff7bf3194d2888c810b6aae9c32d</Guid>
               <DisplayName>SmartBox Service</DisplayName>
             </Metadata>
             <ServiceObjects>
@@ -84,26 +84,26 @@
                 <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                   <ServiceElements>
                     <ServiceElementDefinition>
-                      <Guid>aa16263d1a654c98b9655301ff6d595d</Guid>
+                      <Guid>493f6ab23cec4b079a23edb63697ab0b</Guid>
                       <Name>noofuniqueproperties</Name>
                       <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>8679cbd924084a29827ac0ac079a7172</Guid>
+                      <Guid>fd7462e58a9144c8ae90496a01b36b7a</Guid>
                       <Name>autonumberprop</Name>
                       <Value>ID</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>9eb1103304024ddda5cd7ffb88ed7ce1</Guid>
+                      <Guid>37cb4f1dfb7542ac8d3975dfd497a54e</Guid>
                       <Name>autoguidprop</Name>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>03792c3f438f48c198c522d6bce7d036</Guid>
+                      <Guid>b2e6fe585e874ab3a0bdfdab90ece7ba</Guid>
                       <Name>guid</Name>
-                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                   </ServiceElements>
-                  <Guid>adcf565d12284ab2ba10b8ce7d9c4ed4</Guid>
+                  <Guid>52b457becc3046fb92eab773cecda24b</Guid>
                   <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
                 </Metadata>
                 <Properties>
@@ -111,37 +111,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>378ab7752ab747a69c9dc425afa7c93f</Guid>
+                          <Guid>b9013d02f4b74b0d9bfccb0efd63a8eb</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>0d6f886c87ff48f1b34b45cb1d1257b7</Guid>
+                          <Guid>bd49f9ec522844eeb401342f3da56eb4</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>01f0e0a99fcc4bef8ef358860693b289</Guid>
+                          <Guid>8270565de9434416ad87088073b82e13</Guid>
                           <Name>unique</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>55dd4188a0c042a0897a2252c7ce6b65</Guid>
+                          <Guid>0b7bd42ead8d49e1a1c45fd70c271db1</Guid>
                           <Name>sortby</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>ca411fb709314d48b07176b5730b2a9a</Guid>
+                      <Guid>df5d29cb4bf54d1e893ec08c339a7a47</Guid>
                       <DisplayName>ID</DisplayName>
                       <Description>The key used to identify a specific record.</Description>
                     </Metadata>
                     <Map>
-                      <Guid>ac8351f5f8bc49e997c5b1688feaeb52</Guid>
+                      <Guid>eb842e0437d34eed83065827c321bf79</Guid>
                       <Name>ID</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>6f146f0e17d84ed4af1c1173d36ca603</Guid>
+                    <Guid>b70d8d508fae4ecc90232be194651bfc</Guid>
                     <Name>ID</Name>
                     <Type>Autonumber</Type>
                     <ServicePropertyType />
@@ -152,26 +152,36 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>17e47a9ce1f64f0f880b70a4a1c37399</Guid>
+                          <Guid>8a62adb58dde4a19a3395e8f8e9e3c9c</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>6330b6861ed047d296be6112d0e0b5bf</Guid>
+                          <Guid>cdc6166beac74d289e62beef8e4e7876</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>48e69ad83990477b979326acafeab3d7</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>355ac0fe90ae4eacae36c6db65af8a11</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>d6f10c5a4eac4e259a53633eae6e2264</Guid>
+                      <Guid>01938ac7f3de438cb5f67d4ab31c8a24</Guid>
                       <DisplayName>Identities</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>20b1813aecd3423da138ee7d145bd261</Guid>
+                      <Guid>2c25a39de7f44b0c91497d6f81dacfa6</Guid>
                       <Name>Identities</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>1e1174f0a89b4df89b555a59d5a72859</Guid>
+                    <Guid>666e18608d744154987f60f625d40f52</Guid>
                     <Name>Identities</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
@@ -182,27 +192,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>351ae0324a53419ba6493ab72c3af34e</Guid>
+                          <Guid>bc0184b43105446881e194cbe5655a7d</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>8ba5b664d1f448bba52809a02cc0fd80</Guid>
+                          <Guid>856272bd0c764c61bc14accd2799dc97</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>90da964110254ff2bfd8b49c062732d8</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>021c6ffdcf424bd9add42ede0d9852ac</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>9566d8cec376448d9d73a0c42401600d</Guid>
-                      <DisplayName>ResourceName</DisplayName>
+                      <Guid>171a1c4b45034e3c830acef24de7902c</Guid>
+                      <DisplayName>Resources</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>e92de948b9a346b0be29c0ffd24bc686</Guid>
-                      <Name>ResourceName</Name>
+                      <Guid>f443d076d1fe4625ab584b7197433c9d</Guid>
+                      <Name>Resources</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>77e92f26184f4a30b6f9739b248143d2</Guid>
-                    <Name>ResourceName</Name>
+                    <Guid>5d83ba529b4c4df3b233f43333fca157</Guid>
+                    <Name>Resources</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
                     <ExtendType>Default</ExtendType>
@@ -212,26 +232,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>609e3ca8f29147bb8a4336ca0f34ab15</Guid>
+                          <Guid>88499546cb234b13a0df134d430d2401</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>8ffc1656d38e4a48a1f835566368d84e</Guid>
+                          <Guid>ce7aba94125349c7929e7952ab44e777</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>6633beacf15549739322a07432412cf2</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>db714d5d4fec4e4caae2e6e0315a8229</Guid>
+                      <Guid>7a5a005c598f4e5ca20397ee53f4213f</Guid>
                       <DisplayName>ResourceType</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>0d43ebc67e2e40eb8a9f3d0d825623d7</Guid>
+                      <Guid>47916477cd224751a95e26bed9fbf051</Guid>
                       <Name>ResourceType</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>6783e567a2954542802979be00fca344</Guid>
+                    <Guid>39e242e86340436fadc380f8cd13fc4d</Guid>
                     <Name>ResourceType</Name>
                     <Type>Number</Type>
                     <ServicePropertyType />
@@ -242,26 +267,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>0995685689534089891dbb80394d54d0</Guid>
+                          <Guid>7eecf371890b4052987ae2c711c02edb</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>0ea64f8008fc4cfd8263cd0b563406f0</Guid>
+                          <Guid>567780db119840489154404c4aa26901</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>96de9acfc47d4add8652aa1856aa6de1</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>ad2223ef34a74e059165f291aa247cee</Guid>
+                      <Guid>fe99ac18d48d4921a1dc000b3adc8532</Guid>
                       <DisplayName>Allow</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>7075061a74f0417bb9aa458605dd4170</Guid>
+                      <Guid>158b606bb0d541d3b671d4ff37da5579</Guid>
                       <Name>Allow</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>7a450a07bad84655b75bb00ec041013f</Guid>
+                    <Guid>8748f8315c1a4009a1be3dbf00179952</Guid>
                     <Name>Allow</Name>
                     <Type>YesNo</Type>
                     <ServicePropertyType />
@@ -272,21 +302,21 @@
                 <Methods>
                   <ServiceObjectMethod>
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>792f08ae4ea14b45ac0e943bdf2c970e</Guid>
+                      <Guid>7321e7494e81457f855db1589b33f2e6</Guid>
                       <DisplayName>Create</DisplayName>
                       <Description>This method creates a new entry</Description>
                     </Metadata>
                     <Validation Type="SourceCode.SmartObjects.Authoring.ServiceMethodValidation" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>16415f43e4084d6990ea64441e553247</Guid>
+                      <Guid>3991de34ea944276a3e34231da6abee9</Guid>
                     </Validation>
-                    <Guid>87b249b35bad4e55b8b20fe9b3854b9c</Guid>
+                    <Guid>e9d45f9f7a034e3396e105ac7a7f1176</Guid>
                     <Name>Create</Name>
                     <Type>create</Type>
-                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="ResourceName"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
+                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="Resources"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
                     <ReturnProperties><![CDATA[<returnproperties><property name="ID"/></returnproperties>]]></ReturnProperties>
                   </ServiceObjectMethod>
                 </Methods>
-                <Guid>f3e104428618482b90deb13c7e9f60a1</Guid>
+                <Guid>dc396dfedff74196bc63304526825f84</Guid>
                 <Name>K2Field_SmartForms_Authorization_Rules</Name>
                 <ServiceObjectType>Default</ServiceObjectType>
                 <IsPopulated>1</IsPopulated>
@@ -297,14 +327,14 @@
             <IsPopulated>0</IsPopulated>
             <ServiceType>SourceCode.SmartObjects.Services.SmartBox.SBService</ServiceType>
           </ServiceInstance>
-          <Guid>ff5ebac0b4e74abea0d9da60ea565671</Guid>
+          <Guid>6bdd40cafa6c45ed92ae91f9a18954ae</Guid>
           <Name>0</Name>
         </ExecutionBlock>
       </ExecutionBlocks>
       <JoinDetails Type="SourceCode.SmartObjects.Authoring.ServiceJoinDetails" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>d16fa2c85e6045199b599d16d292de86</Guid>
+        <Guid>e4a09cf1c8b344a7b91babcf63aac8bc</Guid>
       </JoinDetails>
-      <Guid>4cdcb1fb1dfa4c6497780e3866fc13f0</Guid>
+      <Guid>1894588788cd419f83dbfd51d9f7a41d</Guid>
       <Name>Create</Name>
       <Type>create</Type>
       <Transaction>Continue</Transaction>
@@ -312,7 +342,7 @@
     </SmartMethodDefinition>
     <SmartMethodDefinition Type="SourceCode.SmartObjects.Authoring.SmartMethodDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>0d8931d2e1ae4bc7ae661fb00894376a</Guid>
+        <Guid>08c5431a5410422db36f6c5c0a43f17e</Guid>
         <DisplayName>Save</DisplayName>
         <Description>This method updates an entry, or if the entry does not exist creates it.</Description>
       </Metadata>
@@ -320,7 +350,7 @@
         <ExecutionBlock>
           <ServiceInstance>
             <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-              <Guid>04356d5abe1f4696b1a9255001237671</Guid>
+              <Guid>4689f4c5c99e44ca914c299e878ed031</Guid>
               <DisplayName>SmartBox Service</DisplayName>
             </Metadata>
             <ServiceObjects>
@@ -328,26 +358,26 @@
                 <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                   <ServiceElements>
                     <ServiceElementDefinition>
-                      <Guid>5a9410e808224241a3c37539b076c087</Guid>
+                      <Guid>c86bbf2388784128af59aba981c60756</Guid>
                       <Name>noofuniqueproperties</Name>
                       <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>c74c710703b4411a81ddb1747718be3d</Guid>
+                      <Guid>2df5d6493fd94018b0b4e0fddd080b19</Guid>
                       <Name>autonumberprop</Name>
                       <Value>ID</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>b3522c00fc0a46a4b0aa2b686a90cd36</Guid>
+                      <Guid>95d6ae2adaba44ba881c2146b8ed186a</Guid>
                       <Name>autoguidprop</Name>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>3f2ad5ea5d804194a3a216221f048914</Guid>
+                      <Guid>6d5bee10822e4551b71ed3730ad6f5bf</Guid>
                       <Name>guid</Name>
-                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                   </ServiceElements>
-                  <Guid>70ab07cc1e794dd1a55b1268db127d43</Guid>
+                  <Guid>3d9b033181454f53b54ba6a7311a061b</Guid>
                   <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
                 </Metadata>
                 <Properties>
@@ -355,37 +385,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>d81af7bcb47f4f7eb52895c4335350f1</Guid>
+                          <Guid>7bf2b5ec54bb4b9b9c0bd8a26cfbd924</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>f60129ce2245442a8c8f3dab483b09d7</Guid>
+                          <Guid>338f0344f20a49078bd46597ca43191f</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>b5b14a9cd45d4f59a48af81b2cfb8239</Guid>
+                          <Guid>f15dff7db1c341e6bb2465c2daac5080</Guid>
                           <Name>unique</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>d7bb50a9de514f929fee636b5187852c</Guid>
+                          <Guid>f7bbacb13699412f953ec71984a81230</Guid>
                           <Name>sortby</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>9a439b9d31a24bc29f4a6aed6fe00d15</Guid>
+                      <Guid>db56ae31b87043ac8aa140dd4f2d8807</Guid>
                       <DisplayName>ID</DisplayName>
                       <Description>The key used to identify a specific record.</Description>
                     </Metadata>
                     <Map>
-                      <Guid>acbc3043290a4c8cbe8b7f7ea46b08a3</Guid>
+                      <Guid>6f615fcbd1974dff890367e973f84fc7</Guid>
                       <Name>ID</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>82fb14afec6048b99aa49b367995aa4a</Guid>
+                    <Guid>7d057643942843fb8b52a6c361b04334</Guid>
                     <Name>ID</Name>
                     <Type>Autonumber</Type>
                     <ServicePropertyType />
@@ -396,26 +426,36 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>d4352498ba374f3086949a1ecf0e9c20</Guid>
+                          <Guid>a0285a70c576498f9461c20a31a27d51</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>1d7ffe430dc7424a8956d3429fe806c9</Guid>
+                          <Guid>fdcf876bf21241359ce656ac8144dfb5</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>e2bafa365a5e4f5eb2c210942b64b5fd</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>95843d35451f42869cee35b1e99dd6d5</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>d24fe2d882e24afe8a5b7e6ca0941646</Guid>
+                      <Guid>8b890ba65ab34f1a962bdb167656d154</Guid>
                       <DisplayName>Identities</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>d088da2d31c247dfa17d396cb027f79c</Guid>
+                      <Guid>26abe7cb55f94c7fbd3bf24ef20d8b8c</Guid>
                       <Name>Identities</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>4db59bfe009341eb98c32fcadf772e8a</Guid>
+                    <Guid>54d0ebe93510464cb4f5c328a5ad21e9</Guid>
                     <Name>Identities</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
@@ -426,27 +466,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>7600ebd5f1c14d96aba446ab72aa7aab</Guid>
+                          <Guid>0f649fc1835f49d9904826930baf6ea9</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>8d513357dbe44cc0ac1246bf3e788731</Guid>
+                          <Guid>7be6d50ee77f4adbb8cb6e6b55ca7de7</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>f78b7e9365224fdb9adc572975e42ae9</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>e06fa2120a2d48e7b3bdca0f4f57453e</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>f07a02ecfe714ff2ac0c838aae46b66a</Guid>
-                      <DisplayName>ResourceName</DisplayName>
+                      <Guid>4df1de7fcb304be5abde07887390fc91</Guid>
+                      <DisplayName>Resources</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>701310c055dd4f5486f15193a484386a</Guid>
-                      <Name>ResourceName</Name>
+                      <Guid>8e4a4320b01d4ceea1c2925d851d99de</Guid>
+                      <Name>Resources</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>0b38935ece514c9b8125774799055481</Guid>
-                    <Name>ResourceName</Name>
+                    <Guid>63879488a04b433fb105c9a7a0b70af5</Guid>
+                    <Name>Resources</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
                     <ExtendType>Default</ExtendType>
@@ -456,26 +506,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>5885b57a9f2a431784a56dedbba0e421</Guid>
+                          <Guid>a07100b34a4b4630b11d56b063883d31</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>7d29221a4114476a90b3eefdd3deacc7</Guid>
+                          <Guid>04e40700e55c431c85833932eb695b70</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>67b20bc9011845fd8d9392a7db343bd4</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>c27b15d86aba40a8a71200287c4cf8da</Guid>
+                      <Guid>003813fab66143e491e56e301e582866</Guid>
                       <DisplayName>ResourceType</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>d5a7fbf4da004dbda2e96613af443ef5</Guid>
+                      <Guid>55c440be041f4c089d0c946fda42db95</Guid>
                       <Name>ResourceType</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>4f3a6be3a84c4490ac96a3357a871575</Guid>
+                    <Guid>bd2b02265a274bcf985cf72cfeab79f8</Guid>
                     <Name>ResourceType</Name>
                     <Type>Number</Type>
                     <ServicePropertyType />
@@ -486,26 +541,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>438f84adf28d4cbf8199ec9f54da5f86</Guid>
+                          <Guid>638266c663f247d28578bb3759b23b87</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>acc7c8b5e49742c49ca3f40b318bc3b9</Guid>
+                          <Guid>28d676dc25ef485abb6948a5d13861cc</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>49f77eec5ccd4ada9662d982e39a04b3</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>49533f4b51cb411991e9ed5112a382e9</Guid>
+                      <Guid>a2a07ed224354c12bb204a57a0bffa24</Guid>
                       <DisplayName>Allow</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>5abf5bfacda2474085e46dc41ca5db1d</Guid>
+                      <Guid>b81b99b9344d4596bbf4d6901f9ccc12</Guid>
                       <Name>Allow</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>c9dff8c2ccca48049158aab4ac95b310</Guid>
+                    <Guid>43d8e2d9d1124eacbb2300103e175231</Guid>
                     <Name>Allow</Name>
                     <Type>YesNo</Type>
                     <ServicePropertyType />
@@ -516,21 +576,21 @@
                 <Methods>
                   <ServiceObjectMethod>
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>5acf65ba6a634971a1472254d52510fc</Guid>
+                      <Guid>851fde5c5d294125b9ba5a2c956c8830</Guid>
                       <DisplayName>Save</DisplayName>
                       <Description>This method updates an entry, or if the entry does not exist creates it.</Description>
                     </Metadata>
                     <Validation Type="SourceCode.SmartObjects.Authoring.ServiceMethodValidation" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>536d7f9ffaab4623a1699f8c3610a743</Guid>
+                      <Guid>d1e170c63a8d4c3da739e233c30b39b0</Guid>
                     </Validation>
-                    <Guid>b8b4c06c95de4e0a86ddc2c87afde8c6</Guid>
+                    <Guid>58c79e5947e34947a646977f51b69f31</Guid>
                     <Name>Save</Name>
                     <Type>update</Type>
-                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="ResourceName"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
+                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="Resources"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
                     <ReturnProperties><![CDATA[<returnproperties><property name="ID"/></returnproperties>]]></ReturnProperties>
                   </ServiceObjectMethod>
                 </Methods>
-                <Guid>5160ce1a13be4ff3835fb24572ede5b7</Guid>
+                <Guid>e30297f99a684799ae3c41ed4ef1c588</Guid>
                 <Name>K2Field_SmartForms_Authorization_Rules</Name>
                 <ServiceObjectType>Default</ServiceObjectType>
                 <IsPopulated>1</IsPopulated>
@@ -541,14 +601,14 @@
             <IsPopulated>0</IsPopulated>
             <ServiceType>SourceCode.SmartObjects.Services.SmartBox.SBService</ServiceType>
           </ServiceInstance>
-          <Guid>250b3464010f4c92ac3e2714ecd7c762</Guid>
+          <Guid>e91c181b7bdd420abaf4b91f17c55bdd</Guid>
           <Name>0</Name>
         </ExecutionBlock>
       </ExecutionBlocks>
       <JoinDetails Type="SourceCode.SmartObjects.Authoring.ServiceJoinDetails" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>7debde4e40794ae4a7f9cab3b374ce87</Guid>
+        <Guid>2245b70574e24a359e3dab574440bffb</Guid>
       </JoinDetails>
-      <Guid>0b54d90bb2fe4821a2b3d83685b4d928</Guid>
+      <Guid>26d95b230ee04d419f1ace9e2681912a</Guid>
       <Name>Save</Name>
       <Type>update</Type>
       <Transaction>Continue</Transaction>
@@ -556,7 +616,7 @@
     </SmartMethodDefinition>
     <SmartMethodDefinition Type="SourceCode.SmartObjects.Authoring.SmartMethodDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>84324cc54c144a9cb4cc8b243fa65b6b</Guid>
+        <Guid>c1488ba9652a4e9ba1f7e7300a410e05</Guid>
         <DisplayName>Delete</DisplayName>
         <Description>This method deletes a single entry</Description>
       </Metadata>
@@ -564,7 +624,7 @@
         <ExecutionBlock>
           <ServiceInstance>
             <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-              <Guid>aad5875141da4383a688162c4e81424e</Guid>
+              <Guid>a21abf14ac0240e38054a2b408304bad</Guid>
               <DisplayName>SmartBox Service</DisplayName>
             </Metadata>
             <ServiceObjects>
@@ -572,26 +632,26 @@
                 <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                   <ServiceElements>
                     <ServiceElementDefinition>
-                      <Guid>e1f35e42173b413cb86f0da7ad89406d</Guid>
+                      <Guid>e842146cba494a4bbf36cb2cf75e5249</Guid>
                       <Name>noofuniqueproperties</Name>
                       <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>80474de87a704e38906f25e0276cbb67</Guid>
+                      <Guid>4735c0bd469b44e289c8c449bfe30787</Guid>
                       <Name>autonumberprop</Name>
                       <Value>ID</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>ac03a24cf3154c44a09bfdbdc2f72a6d</Guid>
+                      <Guid>88a8d4031ce146af9056785a3f26d996</Guid>
                       <Name>autoguidprop</Name>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>01691080368f4add8cfb7ed1efcfeaed</Guid>
+                      <Guid>eda33e1bb1a749708041dd518cf4409a</Guid>
                       <Name>guid</Name>
-                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                   </ServiceElements>
-                  <Guid>dc934f6078b546f4bade7664d00a3522</Guid>
+                  <Guid>126b82e48b42457b8dc6dab290e921d0</Guid>
                   <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
                 </Metadata>
                 <Properties>
@@ -599,37 +659,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>0df35783bc9141f2ac30131ab20c307d</Guid>
+                          <Guid>6f574dc942ca41b483c53bbe8d7e56dc</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>49ca1429c3544c8a9ff5143382dea59f</Guid>
+                          <Guid>510c3f67b7624e3a931ce90e2e18ad3d</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>b140f2245f0d4891ac0a8c0363179af9</Guid>
+                          <Guid>dce8b7009a5843ef9940b12c9a6bfae2</Guid>
                           <Name>unique</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>21a98af7720941af91cea5628a377fa8</Guid>
+                          <Guid>c46be0144c42427f9dd8d913c29d7333</Guid>
                           <Name>sortby</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>e4e3d795a4a848158383ead316e8d503</Guid>
+                      <Guid>7cbe1ea6213d482ab4943083537065a6</Guid>
                       <DisplayName>ID</DisplayName>
                       <Description>The key used to identify a specific record.</Description>
                     </Metadata>
                     <Map>
-                      <Guid>340da1888e734e14ac109403501b170e</Guid>
+                      <Guid>17f9760635404e3ab0854e3c017b8b2b</Guid>
                       <Name>ID</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>9d335bd8cf354798b1a2c076f0acea80</Guid>
+                    <Guid>78fb770910d141649ce2ceb757e2bd7e</Guid>
                     <Name>ID</Name>
                     <Type>Autonumber</Type>
                     <ServicePropertyType />
@@ -640,26 +700,36 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>dc379aa9105648a1bddcd68dcce471cb</Guid>
+                          <Guid>d770d99199ea4ef6aeb562bb1440925b</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>d51cc2bbc41942079c766fb0828b465f</Guid>
+                          <Guid>3840f3ab0fc54cae9c21070210ffe66c</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>ec9dba8101af4b889be0ef1bd1235d08</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>ba3ac7469cbd42c49a5f3dcf7a73e110</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>a892a99096dd44bc8920b0960dc5fa04</Guid>
+                      <Guid>6560a0b55bc040e297a4e211014d63f7</Guid>
                       <DisplayName>Identities</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>8f75dddc19d741dabeb46ee106ee1984</Guid>
+                      <Guid>3fb54af5be9740e79eea95048b98d3cc</Guid>
                       <Name>Identities</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>ba405ce35ac74068bf6797d5f563871c</Guid>
+                    <Guid>c26300d2b00b444c9eb9ee585c204121</Guid>
                     <Name>Identities</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
@@ -670,27 +740,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>1dde5665249d4e2781d407760b2a922c</Guid>
+                          <Guid>ccb3e4fd25cd47f1a7b130a8a6bacd53</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>9db5561e036746c88ff78c4b82ed515e</Guid>
+                          <Guid>c91690f616e141659f4037d007fff9da</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>83230f20b19e4691a15161917ca49755</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>e17a7f55034b41698226332fd113ef99</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>ef56b4b2e6ad4101a08dd4c3704a5768</Guid>
-                      <DisplayName>ResourceName</DisplayName>
+                      <Guid>4f1537474d16471d8d50aa83e56e6da8</Guid>
+                      <DisplayName>Resources</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>312fbee2d1d94e5e8c984094711719ab</Guid>
-                      <Name>ResourceName</Name>
+                      <Guid>f4354576e3c04073b79133c3736b27a3</Guid>
+                      <Name>Resources</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>5f42b0a4b435429cbd3152611dea2a4d</Guid>
-                    <Name>ResourceName</Name>
+                    <Guid>bf7c38def7d24917b8bcb654efdfaaf5</Guid>
+                    <Name>Resources</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
                     <ExtendType>Default</ExtendType>
@@ -700,26 +780,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>c0539b5eeedd4d03a6082a82532cfdd9</Guid>
+                          <Guid>a33e4cc4ab3444f28a774660842bb41f</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>67a1c3caf21841bab3e0bf23421b837a</Guid>
+                          <Guid>5150d04508724d86b238ecdca7b3de5a</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>89ac63bcbde94de882837ed55eb982a9</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>ab60bad4dce04b86a72fcffc7b0c33f9</Guid>
+                      <Guid>ed1ce9557dd1425782d43e2533c532b6</Guid>
                       <DisplayName>ResourceType</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>0dcef124907c481b9ce7cef524d168bb</Guid>
+                      <Guid>f51a3998541344908a568d4dfdc9fd3e</Guid>
                       <Name>ResourceType</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>7f7c0c6f9bd64bde8a39abc05dfe79d3</Guid>
+                    <Guid>8d9833d4d5df4b1eaba4bf452f5cbf69</Guid>
                     <Name>ResourceType</Name>
                     <Type>Number</Type>
                     <ServicePropertyType />
@@ -730,26 +815,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>288d126871854120a3b6a4f20ed6fb9d</Guid>
+                          <Guid>fd1ad00f58024f6196b0a1dc9e281251</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>7c2e841ded344917abb1414380758d7e</Guid>
+                          <Guid>297d41c63b9645cb836c387bab0d14f6</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>0fc1799f3dc9457a90506dffff869c59</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>20ff05f6f8b24d78af81ed6ce2637c5a</Guid>
+                      <Guid>985de89270754c99986fd84e604e187d</Guid>
                       <DisplayName>Allow</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>cebbe1fb816b449eac1ec75d3ff7306e</Guid>
+                      <Guid>526cc777a39043dcbe8350e1dce60e1d</Guid>
                       <Name>Allow</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>0564188e081e4d2b98e57a842647eb9c</Guid>
+                    <Guid>d87792ca16164df59bf2b9faa66bd8a6</Guid>
                     <Name>Allow</Name>
                     <Type>YesNo</Type>
                     <ServicePropertyType />
@@ -760,21 +850,21 @@
                 <Methods>
                   <ServiceObjectMethod>
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>d07d4f32c5b74190b34b724cd82f0d73</Guid>
+                      <Guid>74f8a88f328b450c8e53e3b75446e6b6</Guid>
                       <DisplayName>Delete</DisplayName>
                       <Description>This method deletes a single entry</Description>
                     </Metadata>
                     <Validation Type="SourceCode.SmartObjects.Authoring.ServiceMethodValidation" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>6333895728c94e33a495dc4c4c345e97</Guid>
+                      <Guid>4664e9113b254357afc76c5c209dbb10</Guid>
                       <RequiredProperties><![CDATA[<requiredproperties><property name="ID"/></requiredproperties>]]></RequiredProperties>
                     </Validation>
-                    <Guid>17373036a4434d3aaca36966f2021882</Guid>
+                    <Guid>04093bd01a1d45449a9bb8af308fe6bf</Guid>
                     <Name>Delete</Name>
                     <Type>delete</Type>
                     <InputProperties><![CDATA[<inputproperties><property name="ID"/></inputproperties>]]></InputProperties>
                   </ServiceObjectMethod>
                 </Methods>
-                <Guid>625524ee4fbc46088277b411bde328f2</Guid>
+                <Guid>0a7ff8bf28714fb9b6b7d38f11057f88</Guid>
                 <Name>K2Field_SmartForms_Authorization_Rules</Name>
                 <ServiceObjectType>Default</ServiceObjectType>
                 <IsPopulated>1</IsPopulated>
@@ -785,14 +875,14 @@
             <IsPopulated>0</IsPopulated>
             <ServiceType>SourceCode.SmartObjects.Services.SmartBox.SBService</ServiceType>
           </ServiceInstance>
-          <Guid>3ac17bd279974885b49055b997993608</Guid>
+          <Guid>d7246e9c780a42f48ca586be33455852</Guid>
           <Name>0</Name>
         </ExecutionBlock>
       </ExecutionBlocks>
       <JoinDetails Type="SourceCode.SmartObjects.Authoring.ServiceJoinDetails" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>00fede3ff54b42fe9e0f807bc8a04013</Guid>
+        <Guid>269b34c2e3584da5a8f5bc5accc6ef5f</Guid>
       </JoinDetails>
-      <Guid>e16377d8cbe04b50b254fea4a5fd4408</Guid>
+      <Guid>98ea7ed6f1cb4fb3ad7652b982689554</Guid>
       <Name>Delete</Name>
       <Type>delete</Type>
       <Transaction>Continue</Transaction>
@@ -800,7 +890,7 @@
     </SmartMethodDefinition>
     <SmartMethodDefinition Type="SourceCode.SmartObjects.Authoring.SmartMethodDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>bc43d1ca9d604aeab65d1e8ca8eb02ad</Guid>
+        <Guid>722bb75907b94fae9530173a87d8daf7</Guid>
         <DisplayName>Load</DisplayName>
         <Description>This method loads a single entry</Description>
       </Metadata>
@@ -808,7 +898,7 @@
         <ExecutionBlock>
           <ServiceInstance>
             <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-              <Guid>73c28b5bcc5b46438116f8632216b5ec</Guid>
+              <Guid>cebac3aa2d5e4aa994efd26c724e7057</Guid>
               <DisplayName>SmartBox Service</DisplayName>
             </Metadata>
             <ServiceObjects>
@@ -816,26 +906,26 @@
                 <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                   <ServiceElements>
                     <ServiceElementDefinition>
-                      <Guid>142ab68ec28a4059af57041c18379470</Guid>
+                      <Guid>6784594f32844a658966bc68389a282f</Guid>
                       <Name>noofuniqueproperties</Name>
                       <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>7e89005f74c645888d7938e834f10e44</Guid>
+                      <Guid>f650de2d29c34c4dae567126c8d329ed</Guid>
                       <Name>autonumberprop</Name>
                       <Value>ID</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>4a5738e611984ecf8829b806433de507</Guid>
+                      <Guid>1c736d2293944ce9a4ce5dc503a4d42b</Guid>
                       <Name>autoguidprop</Name>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>93ee26cf02364af2933cb07c91aabc9f</Guid>
+                      <Guid>7afda7bc3348479c8b223de915403ace</Guid>
                       <Name>guid</Name>
-                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                   </ServiceElements>
-                  <Guid>23ceee967ab34dd28478262966af9574</Guid>
+                  <Guid>8086a2bdda8441da9a558af2dd298afd</Guid>
                   <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
                 </Metadata>
                 <Properties>
@@ -843,37 +933,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>262ff794dda249e48361655cfc1bd991</Guid>
+                          <Guid>e5c273a576074a28849fa8dd2fe64aa0</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>fcddf444509a41ddbbf2a7391a2f2bfa</Guid>
+                          <Guid>2a0392bf5dd142dcb8e1f3c47978e505</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>ddf20394053645559798931fa732627e</Guid>
+                          <Guid>48e2372535d746ffa03d6c07d3387f18</Guid>
                           <Name>unique</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>36ca44bae2ee4749bdc5676e73d0d912</Guid>
+                          <Guid>32c8eb90dfb84806822dbc1944cf0edd</Guid>
                           <Name>sortby</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>2efe3d02ed2544ecaab153d5786a36a6</Guid>
+                      <Guid>11450b74011645dfa66aafca81fc9d68</Guid>
                       <DisplayName>ID</DisplayName>
                       <Description>The key used to identify a specific record.</Description>
                     </Metadata>
                     <Map>
-                      <Guid>c9ea13a25e9240b8bc28af7f7f31955d</Guid>
+                      <Guid>05da46818e2a4d34b0436dbb163710fe</Guid>
                       <Name>ID</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>4298c43a22964089842f67039831c685</Guid>
+                    <Guid>09dd06bba7c941d49f401d9715371d69</Guid>
                     <Name>ID</Name>
                     <Type>Autonumber</Type>
                     <ServicePropertyType />
@@ -884,26 +974,36 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>d74bae0172d44d9d8b90b3c00c57e846</Guid>
+                          <Guid>52ad1212c4834024b0c225625f855aad</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>68c83a4191ae4b4fa122b8a8947b49d5</Guid>
+                          <Guid>73096a30effe4db4a779e76923694ebb</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>2a7b8afd433e4a2ba02e1fd5b0cf2667</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>ea6c0a08fda74362abca48d03208405f</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>6f47135a1ff7430d86c2facc01af1de7</Guid>
+                      <Guid>5c7d7a8d26e34e978442680fa4bebc1a</Guid>
                       <DisplayName>Identities</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>0b82a474cf4b4d7093a3da867b1314ef</Guid>
+                      <Guid>fc6bb8c16e9f4f729ecb92b1f47039a1</Guid>
                       <Name>Identities</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>524324041d2c4e609ae8e0fb613ba9c0</Guid>
+                    <Guid>af6793b9ceb343289373c620883a3b5d</Guid>
                     <Name>Identities</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
@@ -914,27 +1014,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>3027ec8b3fe44bc8add24c9981a51b95</Guid>
+                          <Guid>ee2db56fec3e4db7aa1ade56d4e52261</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>2d3eaaffed394b178dbdc056279c0db9</Guid>
+                          <Guid>4015ded624a24b65bc734acb67071023</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>a4a9eab36e0d4c5287b428ec29af6260</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>b7d61c3c51174d26855c32894a0be71c</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>1bacfda951544990a49688680e2cf1a9</Guid>
-                      <DisplayName>ResourceName</DisplayName>
+                      <Guid>50e600163f904313b36cdd6b39b41ebd</Guid>
+                      <DisplayName>Resources</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>f367d33c34d24895a39454867f005f5c</Guid>
-                      <Name>ResourceName</Name>
+                      <Guid>bd4a48a648f44791a3dafaed5e5771a2</Guid>
+                      <Name>Resources</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>0c7d9f0d4c224d169b9308ae764959b2</Guid>
-                    <Name>ResourceName</Name>
+                    <Guid>b634fe5dae674c70951cca9ec67443bf</Guid>
+                    <Name>Resources</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
                     <ExtendType>Default</ExtendType>
@@ -944,26 +1054,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>142798be84c440ce8cd2ac9ef649e70f</Guid>
+                          <Guid>14011654a4474b13a8a1f23715186a6d</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>62d1ca4f41874569a05fac5e67f54461</Guid>
+                          <Guid>a1a00ed023414bcaabb8af6a397e1a40</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>a33fa79a222145bf93f165df8ec4d251</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>efcb68ef1f6d4030bae48867e4efde4d</Guid>
+                      <Guid>06873d672e5f47c49885670ec1d90c56</Guid>
                       <DisplayName>ResourceType</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>88d0ca97d8754ecb9a186d6c344f8700</Guid>
+                      <Guid>ec493c4886eb4fa880dbab80836a177f</Guid>
                       <Name>ResourceType</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>af3c4be586ab40f795dfc5e5b2940825</Guid>
+                    <Guid>bc2b89a1cbe74eed8ec2dfced332d3cd</Guid>
                     <Name>ResourceType</Name>
                     <Type>Number</Type>
                     <ServicePropertyType />
@@ -974,26 +1089,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>403542bbd96944219b7ae5ff91304f75</Guid>
+                          <Guid>e8d994f9aab848bd815fb082bef5a578</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>febed15fe65446d5a229bf9dfc105296</Guid>
+                          <Guid>61a3236af5c04b4f873528e55eb111e8</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>f3d6d1dc8ca249c884116797dc6b8cf9</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>2bd604148d9a40f7baa59ff83032c0ce</Guid>
+                      <Guid>24c5c6be27a54f18ae0cac5845ff4d0d</Guid>
                       <DisplayName>Allow</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>f7aa9092c45f49c09053ef4913adbbef</Guid>
+                      <Guid>59693482ec724e9e86e5050878b5ca5e</Guid>
                       <Name>Allow</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>5d2884e69c154ed5b474a8780239ad73</Guid>
+                    <Guid>1d4adad3578a496982d2689eea299de7</Guid>
                     <Name>Allow</Name>
                     <Type>YesNo</Type>
                     <ServicePropertyType />
@@ -1004,22 +1124,22 @@
                 <Methods>
                   <ServiceObjectMethod>
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>b0b92998ddb24edca8946df0f6137ec6</Guid>
+                      <Guid>cdf2a988c47e4aa38592958d51dc3d87</Guid>
                       <DisplayName>Load</DisplayName>
                       <Description>This method loads a single entry</Description>
                     </Metadata>
                     <Validation Type="SourceCode.SmartObjects.Authoring.ServiceMethodValidation" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>1ed48342edb34abcad732360d5ab24d1</Guid>
+                      <Guid>6b34f774baa2487f84ace669bec81a40</Guid>
                       <RequiredProperties><![CDATA[<requiredproperties><property name="ID"/></requiredproperties>]]></RequiredProperties>
                     </Validation>
-                    <Guid>1bca4bb378524b048417d7652d72c246</Guid>
+                    <Guid>a8eda3c60a5a416a9e6397d2763af509</Guid>
                     <Name>Load</Name>
                     <Type>read</Type>
                     <InputProperties><![CDATA[<inputproperties><property name="ID"/></inputproperties>]]></InputProperties>
-                    <ReturnProperties><![CDATA[<returnproperties><property name="ID"/><property name="Identities"/><property name="ResourceName"/><property name="ResourceType"/><property name="Allow"/></returnproperties>]]></ReturnProperties>
+                    <ReturnProperties><![CDATA[<returnproperties><property name="ID"/><property name="Identities"/><property name="Resources"/><property name="ResourceType"/><property name="Allow"/></returnproperties>]]></ReturnProperties>
                   </ServiceObjectMethod>
                 </Methods>
-                <Guid>1833f462bedd476187c10aafef8f1b1f</Guid>
+                <Guid>148354c85d04413286e1c78036443aa9</Guid>
                 <Name>K2Field_SmartForms_Authorization_Rules</Name>
                 <ServiceObjectType>Default</ServiceObjectType>
                 <IsPopulated>1</IsPopulated>
@@ -1030,14 +1150,14 @@
             <IsPopulated>0</IsPopulated>
             <ServiceType>SourceCode.SmartObjects.Services.SmartBox.SBService</ServiceType>
           </ServiceInstance>
-          <Guid>4433ef4ecd7b4c828c5946dbd4aba616</Guid>
+          <Guid>a1b327af984a4500848ab0ec5c047d50</Guid>
           <Name>0</Name>
         </ExecutionBlock>
       </ExecutionBlocks>
       <JoinDetails Type="SourceCode.SmartObjects.Authoring.ServiceJoinDetails" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>36cd48e7a0994df98cd615d2af040b88</Guid>
+        <Guid>0200d83ab2e9473b8ee9208533da63d0</Guid>
       </JoinDetails>
-      <Guid>3295bace726e4457b22ada79d7deecf1</Guid>
+      <Guid>4540bb639578477d8d36e76ab77d95d2</Guid>
       <Name>Load</Name>
       <Type>read</Type>
       <Transaction>Continue</Transaction>
@@ -1045,7 +1165,7 @@
     </SmartMethodDefinition>
     <SmartMethodDefinition Type="SourceCode.SmartObjects.Authoring.SmartMethodDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>f0f55eabcb9142e79756325eb030625c</Guid>
+        <Guid>2abfa9aee2754233be5a8f32ba233150</Guid>
         <DisplayName>Get List</DisplayName>
         <Description>This method gets a list of entries</Description>
       </Metadata>
@@ -1053,7 +1173,7 @@
         <ExecutionBlock>
           <ServiceInstance>
             <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-              <Guid>b75f68e268dc49918fe71aaf94ad2af9</Guid>
+              <Guid>fbfc01b23d714caf86b2c1cd83de7c02</Guid>
               <DisplayName>SmartBox Service</DisplayName>
             </Metadata>
             <ServiceObjects>
@@ -1061,26 +1181,26 @@
                 <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                   <ServiceElements>
                     <ServiceElementDefinition>
-                      <Guid>b5069e748e5149088e57e3d9c7d0a8ae</Guid>
+                      <Guid>75e3d5263aa9429b9f24acf6cbc4e5cf</Guid>
                       <Name>noofuniqueproperties</Name>
                       <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>b51fc5a3b0164c0ea4b6c327b260e6aa</Guid>
+                      <Guid>f990b67e6f40404290b8fc1af0f67af2</Guid>
                       <Name>autonumberprop</Name>
                       <Value>ID</Value>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>def7fc08079c4f6ba903875b9c2d3937</Guid>
+                      <Guid>39b17e98faaf4e9798ac4a23a391efaa</Guid>
                       <Name>autoguidprop</Name>
                     </ServiceElementDefinition>
                     <ServiceElementDefinition>
-                      <Guid>c3a16146bc304644be635cec96261ce2</Guid>
+                      <Guid>f372ecb5613a43079c4f18857800e5f2</Guid>
                       <Name>guid</Name>
-                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+                      <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
                     </ServiceElementDefinition>
                   </ServiceElements>
-                  <Guid>24dd58a2997c4c6ea72bcfeb48c1c851</Guid>
+                  <Guid>7df3523d6253463aa7ab44bb608b7a6f</Guid>
                   <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
                 </Metadata>
                 <Properties>
@@ -1088,37 +1208,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>d6c93f6bd18048f493fa84f69f5cbe05</Guid>
+                          <Guid>b497facc0f8444edb35ddba853292a5f</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>47e62be6a8794871b22146f46c4f9ad3</Guid>
+                          <Guid>8ca2c4b000f34d72befade72fbd5c01d</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>75c5ccfeb83c490ca43b0c0cc85f5848</Guid>
+                          <Guid>ce4980f452dc4881a025e12db4bc9030</Guid>
                           <Name>unique</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>0960693621a24c38a2bb61b58a3af1a4</Guid>
+                          <Guid>c3f3744247cd44638cced0ac4f969d7f</Guid>
                           <Name>sortby</Name>
                           <Value>true</Value>
                         </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>89b6829ff16949449b9602556918083e</Guid>
+                      <Guid>29b8c21b2cbf44c3906594300b52ac3f</Guid>
                       <DisplayName>ID</DisplayName>
                       <Description>The key used to identify a specific record.</Description>
                     </Metadata>
                     <Map>
-                      <Guid>6a4f2afab8d44d93b01c78648a95ec8b</Guid>
+                      <Guid>59ee1353bf4a4598bee8fe901ce74d95</Guid>
                       <Name>ID</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>2e9dcf82fd6c47e8953fbea1206ab6e3</Guid>
+                    <Guid>aa4f65de06a04b79bb86c8ad18872199</Guid>
                     <Name>ID</Name>
                     <Type>Autonumber</Type>
                     <ServicePropertyType />
@@ -1129,26 +1249,36 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>cda6c30e790949438481d99e5d6aadba</Guid>
+                          <Guid>6c461685fe8749c7904fe8d82238444b</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>8a5658ae053742d7b9e1e6730c2bb8b1</Guid>
+                          <Guid>2adc0f98846b46d99d1fd43af0a8cca7</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>895fda763ecd47fdadead13898fe4549</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>61a448c82cbe4dd3bb1f4eeda23228a5</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>6962265e7fc545f79601f03f28da7b2c</Guid>
+                      <Guid>f98213421dd347559c7887b8f25d613b</Guid>
                       <DisplayName>Identities</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>aeaa9228bbd44be1bb38f50fbdaaa9ad</Guid>
+                      <Guid>9f35140bea67430bab18601f9b0a0a14</Guid>
                       <Name>Identities</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>b7db937557b149448108e6dafae65b84</Guid>
+                    <Guid>c76b943769e9414db7a7b59cf9ee241c</Guid>
                     <Name>Identities</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
@@ -1159,27 +1289,37 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>48a56ce4f716436ab984130595bf62dc</Guid>
+                          <Guid>26ac080e69f14fda835764663b870639</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>71fd405d403c438d8d3c587d096111c4</Guid>
+                          <Guid>d92e538ca5274d79a0ac1bf675d0cedf</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>d41d7eed255d466f957f7ff1ad5ec81f</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>dcdbd1b929714e83a2c6b8b4a41a87f5</Guid>
+                          <Name>maxsize</Name>
+                          <Value>100</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>c73404b74d214a628987bd50a8d45add</Guid>
-                      <DisplayName>ResourceName</DisplayName>
+                      <Guid>04c300ded8e543a99b59dc66c45ec393</Guid>
+                      <DisplayName>Resources</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>14dcca84c0f744c2a2c94d92ead3b80c</Guid>
-                      <Name>ResourceName</Name>
+                      <Guid>284d3104ff1149438d9566d8057719d9</Guid>
+                      <Name>Resources</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>7ecd471c56a8498295aaa626b3ab1971</Guid>
-                    <Name>ResourceName</Name>
+                    <Guid>81b68364d73a47d4ab1b67516df47a0e</Guid>
+                    <Name>Resources</Name>
                     <Type>Text</Type>
                     <ServicePropertyType />
                     <ExtendType>Default</ExtendType>
@@ -1189,26 +1329,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>c62a59fb949d440e8c49808f3e78232e</Guid>
+                          <Guid>c0752f3e1f054931ab3cf06fb4c90be9</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>71c5466fce0f4a1aa390644ee1368337</Guid>
+                          <Guid>442a7aee4e8d473f949117232b1da02b</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>299bcb01c2094b3c9e8746625f8a7f27</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>3b13fc89d62f450f9e2f2ee8bb7ccf03</Guid>
+                      <Guid>712e2e584cf149d58dc9c06391b00810</Guid>
                       <DisplayName>ResourceType</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>26e070961bfa41d282cc90a932d05194</Guid>
+                      <Guid>40f441fb1247455d98e5238a9a9cd17f</Guid>
                       <Name>ResourceType</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>656ecc5fb70a46ac8c85dfc1c41f3314</Guid>
+                    <Guid>1294439514a445ab8713da5eb69e55f7</Guid>
                     <Name>ResourceType</Name>
                     <Type>Number</Type>
                     <ServicePropertyType />
@@ -1219,26 +1364,31 @@
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
                       <ServiceElements>
                         <ServiceElementDefinition>
-                          <Guid>e7a5da358aab4d8c9a689d25ad9b2b0f</Guid>
+                          <Guid>3c8b8b4b11ed44128da49e15fc309dda</Guid>
                           <Name>uniqueid</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
                         <ServiceElementDefinition>
-                          <Guid>d85e78402d2e4698906f87c08634ac39</Guid>
+                          <Guid>0593c244d1204d2094b02a734894d991</Guid>
                           <Name>autonumber</Name>
                           <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
                         </ServiceElementDefinition>
+                        <ServiceElementDefinition>
+                          <Guid>741e36dc14ce4b6899b1bba78b83bf32</Guid>
+                          <Name>unique</Name>
+                          <Value>false</Value>
+                        </ServiceElementDefinition>
                       </ServiceElements>
-                      <Guid>ef45aeda75374233bed83a15cefa92ba</Guid>
+                      <Guid>1969e8659b9b4a858bbe9f8ac93b0642</Guid>
                       <DisplayName>Allow</DisplayName>
                     </Metadata>
                     <Map>
-                      <Guid>7b9bf1c16f51411d8e62b60661d48244</Guid>
+                      <Guid>115b1bf4b15346c585bfd25062c62f21</Guid>
                       <Name>Allow</Name>
                       <MappingType>Property</MappingType>
                       <XmlMappingType>Text</XmlMappingType>
                     </Map>
-                    <Guid>70896263a6514f70811d34be01aaecdf</Guid>
+                    <Guid>92226254a5744296a8f8285908b8b2e2</Guid>
                     <Name>Allow</Name>
                     <Type>YesNo</Type>
                     <ServicePropertyType />
@@ -1249,21 +1399,21 @@
                 <Methods>
                   <ServiceObjectMethod>
                     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>b5b5eecbeb174c63adaa13357a420387</Guid>
+                      <Guid>93c653ef7d9a4965b7e1044fee1a0bd1</Guid>
                       <DisplayName>Get List</DisplayName>
                       <Description>This method gets a list of entries</Description>
                     </Metadata>
                     <Validation Type="SourceCode.SmartObjects.Authoring.ServiceMethodValidation" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-                      <Guid>10a08d7d35354e8cb13cc6671a0e5da7</Guid>
+                      <Guid>9c3a8744f0864021bd80c78b574f95a9</Guid>
                     </Validation>
-                    <Guid>f68333c226194256bf8182dfd4365a35</Guid>
+                    <Guid>70b3f5d0cabd4d51b4b66f7aed9280aa</Guid>
                     <Name>GetList</Name>
                     <Type>list</Type>
-                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="ResourceName"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
-                    <ReturnProperties><![CDATA[<returnproperties><property name="ID"/><property name="Identities"/><property name="ResourceName"/><property name="ResourceType"/><property name="Allow"/></returnproperties>]]></ReturnProperties>
+                    <InputProperties><![CDATA[<inputproperties><property name="ID"/><property name="Identities"/><property name="Resources"/><property name="ResourceType"/><property name="Allow"/></inputproperties>]]></InputProperties>
+                    <ReturnProperties><![CDATA[<returnproperties><property name="ID"/><property name="Identities"/><property name="Resources"/><property name="ResourceType"/><property name="Allow"/></returnproperties>]]></ReturnProperties>
                   </ServiceObjectMethod>
                 </Methods>
-                <Guid>22f0afda7f8d46ba97f7d271471cae9a</Guid>
+                <Guid>af7a4616be1349cc8248949259a4bbcf</Guid>
                 <Name>K2Field_SmartForms_Authorization_Rules</Name>
                 <ServiceObjectType>Default</ServiceObjectType>
                 <IsPopulated>1</IsPopulated>
@@ -1274,14 +1424,14 @@
             <IsPopulated>0</IsPopulated>
             <ServiceType>SourceCode.SmartObjects.Services.SmartBox.SBService</ServiceType>
           </ServiceInstance>
-          <Guid>0c40e96651854e3c8dbb7fe270d0ecf9</Guid>
+          <Guid>aecc1fded7584e44b6a874e0f96fed34</Guid>
           <Name>0</Name>
         </ExecutionBlock>
       </ExecutionBlocks>
       <JoinDetails Type="SourceCode.SmartObjects.Authoring.ServiceJoinDetails" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-        <Guid>b488b074ee4249b08fb03900816f2843</Guid>
+        <Guid>930648a47f664ffe9da904a59d947c4e</Guid>
       </JoinDetails>
-      <Guid>3eef7e4269c34652aba5589c9632a9da</Guid>
+      <Guid>bea9c712af56494c8889c8a80398e813</Guid>
       <Name>GetList</Name>
       <Type>list</Type>
       <Transaction>Continue</Transaction>
@@ -1292,26 +1442,26 @@
     <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
       <ServiceElements>
         <ServiceElementDefinition>
-          <Guid>5978e8c3d45f486793562b62744b0407</Guid>
+          <Guid>cea4a962741b4cde8339a66a32e22f75</Guid>
           <Name>noofuniqueproperties</Name>
           <Value>&lt;object type="System.Int32"&gt;&lt;int&gt;1&lt;/int&gt;&lt;/object&gt;</Value>
         </ServiceElementDefinition>
         <ServiceElementDefinition>
-          <Guid>f805ad978d2f45d7b03e602f908a6939</Guid>
+          <Guid>1f495076b0e94ace81346b010f02b870</Guid>
           <Name>autonumberprop</Name>
           <Value>ID</Value>
         </ServiceElementDefinition>
         <ServiceElementDefinition>
-          <Guid>b7af8f14fb674371b8ad4791256c1324</Guid>
+          <Guid>a680c42f92054973b47f6f1399d49db4</Guid>
           <Name>autoguidprop</Name>
         </ServiceElementDefinition>
         <ServiceElementDefinition>
-          <Guid>fd3ca6bb82be40859805954de86878ec</Guid>
+          <Guid>44df8232d3ab4ff3a405ec6fa17472af</Guid>
           <Name>guid</Name>
-          <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;98b9ff93-596b-4612-b75d-4594e2dedfc0&lt;/guid&gt;&lt;/object&gt;</Value>
+          <Value>&lt;object type="System.Guid"&gt;&lt;guid&gt;2a56191d-43d3-464f-89b7-c8c83a8c25a4&lt;/guid&gt;&lt;/object&gt;</Value>
         </ServiceElementDefinition>
       </ServiceElements>
-      <Guid>714010c1cb5b406aaea1cf6d42eeba1a</Guid>
+      <Guid>07d20fb3316d4737a1c43dba8df56a95</Guid>
       <DisplayName>K2Field.SmartForms.Authorization.Rules</DisplayName>
     </Metadata>
     <Properties>
@@ -1319,31 +1469,31 @@
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
           <ServiceElements>
             <ServiceElementDefinition>
-              <Guid>113b6522f2b4497a881d7c681c214b6d</Guid>
+              <Guid>805e50089951417e9b6b762d909d918d</Guid>
               <Name>uniqueid</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>2884cbaa0592406a9111ab3a2e216484</Guid>
+              <Guid>67f8358e0d954fc487b1d0e65ba92aad</Guid>
               <Name>autonumber</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;true&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>56bf507e4da54bb794e62e4574594026</Guid>
+              <Guid>12e6491dccb14e2a8ed82fabfaefea12</Guid>
               <Name>unique</Name>
               <Value>true</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>c518c48442f14a5080e040d0b74053e3</Guid>
+              <Guid>e08595d3826f4fc0996b3dfec9a64856</Guid>
               <Name>sortby</Name>
               <Value>true</Value>
             </ServiceElementDefinition>
           </ServiceElements>
-          <Guid>73e89885c29d4109a6031f3d1a15e975</Guid>
+          <Guid>b18318255494494894ab18409edb8a59</Guid>
           <DisplayName>ID</DisplayName>
           <Description>The key used to identify a specific record.</Description>
         </Metadata>
-        <Guid>a5cb13cdcf5544ed9e784710bee73898</Guid>
+        <Guid>b7c57795d4ca4250aa59ba96a6dc2332</Guid>
         <Name>ID</Name>
         <Type>Autonumber</Type>
         <ServicePropertyType>System.Int64</ServicePropertyType>
@@ -1353,20 +1503,30 @@
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
           <ServiceElements>
             <ServiceElementDefinition>
-              <Guid>02e51793c58f4a57a86ddb1f46c0f6b0</Guid>
+              <Guid>10fafb61e3e04ced8fe7ecab9b9b186a</Guid>
               <Name>uniqueid</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>6fc1ee04ad6949bab78a65147c6c3945</Guid>
+              <Guid>4241ae2b8a6d4e97b046ebf25f0181ae</Guid>
               <Name>autonumber</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>996f35aef3f34e20bb27267f6be6a417</Guid>
+              <Name>unique</Name>
+              <Value>false</Value>
+            </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>fbd2b3742b5a4a04bcbb280b535db184</Guid>
+              <Name>maxsize</Name>
+              <Value>100</Value>
+            </ServiceElementDefinition>
           </ServiceElements>
-          <Guid>a63e92fc5fc74d0cb424a2cc3007105d</Guid>
+          <Guid>92b1029484a1466e89be1b7439c134b2</Guid>
           <DisplayName>Identities</DisplayName>
         </Metadata>
-        <Guid>ed46bc81eb384dabbfe6a3758bdeeceb</Guid>
+        <Guid>3a60673b7a784ac0be5d77a8b8acd68d</Guid>
         <Name>Identities</Name>
         <Type>Text</Type>
         <ServicePropertyType />
@@ -1376,21 +1536,31 @@
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
           <ServiceElements>
             <ServiceElementDefinition>
-              <Guid>3f2c18744ddb4abfbbfbf3d95978716c</Guid>
+              <Guid>7e204668cd0245378adaac7707008704</Guid>
               <Name>uniqueid</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>652d0145b7344509ad1ac9ade2704ea8</Guid>
+              <Guid>a213b54ecd574ea6a64e31563c172e2f</Guid>
               <Name>autonumber</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>32ed285f3d0547eb86b639302f87217c</Guid>
+              <Name>unique</Name>
+              <Value>false</Value>
+            </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>f51fe96ded924848bf2b2e00f40abb94</Guid>
+              <Name>maxsize</Name>
+              <Value>100</Value>
+            </ServiceElementDefinition>
           </ServiceElements>
-          <Guid>0e84f12ea48744c8bc33f784de018d8e</Guid>
-          <DisplayName>ResourceName</DisplayName>
+          <Guid>d24b0f2fdac643b48ee6d9541cb4de32</Guid>
+          <DisplayName>Resources</DisplayName>
         </Metadata>
-        <Guid>d66f0397de394c869abc8e441a1cabc2</Guid>
-        <Name>ResourceName</Name>
+        <Guid>cf9254e8a95742e8a5c1240bb0294873</Guid>
+        <Name>Resources</Name>
         <Type>Text</Type>
         <ServicePropertyType />
         <ExtendType>Default</ExtendType>
@@ -1399,20 +1569,25 @@
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
           <ServiceElements>
             <ServiceElementDefinition>
-              <Guid>5983f7d74c5046ffa44e6e424f45ebe1</Guid>
+              <Guid>a86ee83eddcc4a5a82c35ffaa2e68d59</Guid>
               <Name>uniqueid</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>98a179b7d5df4161ad22979ab7ff12ef</Guid>
+              <Guid>2d41936dcd3146a3992f4d4ef0458d22</Guid>
               <Name>autonumber</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>3a3ff0c8d237428b8c707c3a0a8d09c4</Guid>
+              <Name>unique</Name>
+              <Value>false</Value>
+            </ServiceElementDefinition>
           </ServiceElements>
-          <Guid>46b1369c950b449b979ba566a6657403</Guid>
+          <Guid>80e2ee36ab6f498fbbf95359beb1e84e</Guid>
           <DisplayName>ResourceType</DisplayName>
         </Metadata>
-        <Guid>1399343631e041ef8e3b0e1aea60fd0e</Guid>
+        <Guid>5a52282019904539b263b60769d9a3de</Guid>
         <Name>ResourceType</Name>
         <Type>Number</Type>
         <ServicePropertyType>System.Int64</ServicePropertyType>
@@ -1422,20 +1597,25 @@
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
           <ServiceElements>
             <ServiceElementDefinition>
-              <Guid>c1ea6d353cc846f1a144ac22e688a10a</Guid>
+              <Guid>4fa1d63f660b44de9668295418a27cc4</Guid>
               <Name>uniqueid</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
             <ServiceElementDefinition>
-              <Guid>2f095c7707d249f49b71ac516bef75ac</Guid>
+              <Guid>fd349c25314f4b4d8ff0b76bddbcb6ed</Guid>
               <Name>autonumber</Name>
               <Value>&lt;object type="System.Boolean"&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/object&gt;</Value>
             </ServiceElementDefinition>
+            <ServiceElementDefinition>
+              <Guid>10fcff178f4f4417bd7d1890956fd2aa</Guid>
+              <Name>unique</Name>
+              <Value>false</Value>
+            </ServiceElementDefinition>
           </ServiceElements>
-          <Guid>e2120dfb01ee42ec89c7a4d1aef8c8e6</Guid>
+          <Guid>c9fcbf4f7cb54fa7b0c2af6aad00735d</Guid>
           <DisplayName>Allow</DisplayName>
         </Metadata>
-        <Guid>48c9df75d1014800a28a44abd9042dbd</Guid>
+        <Guid>5564c46bb3f34228a212613d7539a481</Guid>
         <Name>Allow</Name>
         <Type>YesNo</Type>
         <ServicePropertyType />
@@ -1445,169 +1625,169 @@
     <Methods>
       <ExtendObjectMethod>
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-          <Guid>6c1f789903684bf8ab2f521c1ef78d8f</Guid>
+          <Guid>c7968e8c22b446659f302b97e90a710e</Guid>
           <DisplayName>Create</DisplayName>
           <Description>This method creates a new entry</Description>
         </Metadata>
         <Indicators>
           <MethodIndicator>
-            <Guid>d42c2c43f6854a60a22fa28cd9753635</Guid>
+            <Guid>0216bc06cb674fae90719ad5e57a0763</Guid>
             <IndicatorType>Requireds</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>3397c4ed8dfa4aee9c7767cee6f708bf</Guid>
+            <Guid>d1ff2b1a58a24c1db8b4641d4642432f</Guid>
             <IndicatorType>Parameters</IndicatorType>
             <Class>SourceCode.SmartObjects.Services.ServiceSDK.Objects.Extend.ExtendMethodParameters, SourceCode.SmartObjects.Services.ServiceSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d</Class>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>7b753aad5f6242518c33919c8d8b73f0</Guid>
+            <Guid>531fd572c12b437eb0b7a02bc80c3fbe</Guid>
             <IndicatorType>Inputs</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="default"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>e3308cf4b9b34a3a9c0e501026d21600</Guid>
+            <Guid>e9f8ea01cedf475995ef221b36357ea3</Guid>
             <IndicatorType>Returns</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
         </Indicators>
-        <Guid>5a30b2b4fabe47d19632ebb4dfa01405</Guid>
+        <Guid>3fb65337b105473ab84530e4134a1066</Guid>
         <Name>Create</Name>
         <Type>create</Type>
         <IsDefined>1</IsDefined>
       </ExtendObjectMethod>
       <ExtendObjectMethod>
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-          <Guid>ca12d0c923084752892183d3424d6e16</Guid>
+          <Guid>5cd2d77fca1741338f1554e223cf149c</Guid>
           <DisplayName>Save</DisplayName>
           <Description>This method updates an entry, or if the entry does not exist creates it.</Description>
         </Metadata>
         <Indicators>
           <MethodIndicator>
-            <Guid>528aba28dde74f6db9eb3d1a7db880e8</Guid>
+            <Guid>4b1213f32c2a4849b12845fa50a3bd2c</Guid>
             <IndicatorType>Requireds</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>3289ac0c2506445bbf375892c8cb9d46</Guid>
+            <Guid>abc518100fe546f9871635db6ceb9f28</Guid>
             <IndicatorType>Parameters</IndicatorType>
             <Class>SourceCode.SmartObjects.Services.ServiceSDK.Objects.Extend.ExtendMethodParameters, SourceCode.SmartObjects.Services.ServiceSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d</Class>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>391ab64a8c3a4c8f8a1a9d788c8c9b85</Guid>
+            <Guid>8152007f10ae4a328dc51562c501fabc</Guid>
             <IndicatorType>Inputs</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="default"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>885b29bb7d6741d7827a481d2e3183d2</Guid>
+            <Guid>2d375d6a42ff415380aca3adb1427750</Guid>
             <IndicatorType>Returns</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
         </Indicators>
-        <Guid>1c3deb2e0fd94b17b3acbc854ded2e33</Guid>
+        <Guid>2a1f1f40e4b94e038649b8b120c36714</Guid>
         <Name>Save</Name>
         <Type>update</Type>
         <IsDefined>1</IsDefined>
       </ExtendObjectMethod>
       <ExtendObjectMethod>
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-          <Guid>971ca91a3a1847e9b19e9765c25099aa</Guid>
+          <Guid>a7a7ae8e595c497b8c8486adade50a4c</Guid>
           <DisplayName>Delete</DisplayName>
           <Description>This method deletes a single entry</Description>
         </Metadata>
         <Indicators>
           <MethodIndicator>
-            <Guid>cbc88933807e4dd1af88946c223e53f8</Guid>
+            <Guid>31308f8e95e64592926837f8291c03fb</Guid>
             <IndicatorType>Requireds</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>7b29ca5238824b0c9a4ad2bd78459848</Guid>
+            <Guid>8ce1dd659c924926b1820da8fe29ba3f</Guid>
             <IndicatorType>Parameters</IndicatorType>
             <Class>SourceCode.SmartObjects.Services.ServiceSDK.Objects.Extend.ExtendMethodParameters, SourceCode.SmartObjects.Services.ServiceSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d</Class>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>6b81e10a92844900bfa1177cdf22c575</Guid>
+            <Guid>2da474b831ca4965b7967fb98c57b930</Guid>
             <IndicatorType>Inputs</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>f578a71cbeb34339a91c0808a261dde7</Guid>
+            <Guid>16ddf401dcbe47c5a88de7f9391f4322</Guid>
             <IndicatorType>Returns</IndicatorType>
           </MethodIndicator>
         </Indicators>
-        <Guid>201993ab0a79482bb7f814f9e8759bd3</Guid>
+        <Guid>ed47ffb373d1469cb5a7e4b71cf70158</Guid>
         <Name>Delete</Name>
         <Type>delete</Type>
         <IsDefined>1</IsDefined>
       </ExtendObjectMethod>
       <ExtendObjectMethod>
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-          <Guid>948915a6996a4f7aa1f834fad863460d</Guid>
+          <Guid>aa43d6a5ac964ac28cf87a5fe4e720e0</Guid>
           <DisplayName>Load</DisplayName>
           <Description>This method loads a single entry</Description>
         </Metadata>
         <Indicators>
           <MethodIndicator>
-            <Guid>f7001f346f714b44a9b73c1f6bddc914</Guid>
+            <Guid>e9b27b7beeb34082a954c6ce2b213272</Guid>
             <IndicatorType>Requireds</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>f39f75ceafef400c96f843eeae02363a</Guid>
+            <Guid>4575c18020e94188ac324cd19172678b</Guid>
             <IndicatorType>Parameters</IndicatorType>
             <Class>SourceCode.SmartObjects.Services.ServiceSDK.Objects.Extend.ExtendMethodParameters, SourceCode.SmartObjects.Services.ServiceSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d</Class>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>6d3aa764fe214352bde8314121016c1c</Guid>
+            <Guid>3e5a9de54e424641944ca2ef4ca9ad40</Guid>
             <IndicatorType>Inputs</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>e7e4c786b08f4176b9b7bd24923199c5</Guid>
+            <Guid>9fd30297eafc4de98951c0685dac536b</Guid>
             <IndicatorType>Returns</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="default"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
         </Indicators>
-        <Guid>9b2947cebbab4aada4f79f9e9e453c6f</Guid>
+        <Guid>d2b6ec1f5c794dcaa5678d7495a79f4f</Guid>
         <Name>Load</Name>
         <Type>read</Type>
         <IsDefined>1</IsDefined>
       </ExtendObjectMethod>
       <ExtendObjectMethod>
         <Metadata Type="SourceCode.SmartObjects.Authoring.MetaDataDefinition" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
-          <Guid>ac8babfcc76d4988ab35b13e0b95a1e2</Guid>
+          <Guid>67ff7c4720214e559a6e701ecc7cd48e</Guid>
           <DisplayName>Get List</DisplayName>
           <Description>This method gets a list of entries</Description>
         </Metadata>
         <Indicators>
           <MethodIndicator>
-            <Guid>5e8d8542d20841eaa31ae4d16bdd33e7</Guid>
+            <Guid>29a9cb7b151449c58009ee6f04ddeb7c</Guid>
             <IndicatorType>Requireds</IndicatorType>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>b3c4a1531022410ca93ce39cdde6f849</Guid>
+            <Guid>59de8b7765814b87bc639e73ae2df66f</Guid>
             <IndicatorType>Parameters</IndicatorType>
             <Class>SourceCode.SmartObjects.Services.ServiceSDK.Objects.Extend.ExtendMethodParameters, SourceCode.SmartObjects.Services.ServiceSDK, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d</Class>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>c453e2aa06dc412a8ac3f04f78981838</Guid>
+            <Guid>997f7731ca154d179fc9818f2ee21d2f</Guid>
             <IndicatorType>Inputs</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="default"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
           <MethodIndicator>
-            <Guid>b47d02ce861f48bc8877cd91a0baefb1</Guid>
+            <Guid>057aa9bd98be4f17991b0680df1dd260</Guid>
             <IndicatorType>Returns</IndicatorType>
             <ExtentTypeNames>&lt;extendtypenames&gt;&lt;extendtypename name="uniqueid"/&gt;&lt;extendtypename name="uniqueidauto"/&gt;&lt;extendtypename name="default"/&gt;&lt;extendtypename name="uniqueauto"/&gt;&lt;/extendtypenames&gt;</ExtentTypeNames>
           </MethodIndicator>
         </Indicators>
-        <Guid>ce9dc1931fd64a3d9436cce4886984cf</Guid>
+        <Guid>730d14d0e0284257a6b5748cfc343fc5</Guid>
         <Name>GetList</Name>
         <Type>list</Type>
         <IsDefined>1</IsDefined>
       </ExtendObjectMethod>
     </Methods>
-    <Guid>f55ff611de7b4313a2974f109b863281</Guid>
+    <Guid>33ed6ba24ecf4b0d9f68cc6ac1f5ceb5</Guid>
     <Name>K2Field_SmartForms_Authorization_Rules</Name>
     <Type>Default</Type>
     <ServiceInstanceGuid>e5609413-d844-4325-98c3-db3cacbd406d</ServiceInstanceGuid>
@@ -1615,31 +1795,32 @@
   <Default Type="SourceCode.SmartObjects.Authoring.SmartObjectDefault" Assembly="SourceCode.SmartObjects.Authoring, Version=4.0.0.0, Culture=neutral, PublicKeyToken=16a2c5aaaa1b130d">
     <DefaultMethods>
       <DefaultMethod>
-        <Guid>89ce5abfab294ceb905bbd142de9760e</Guid>
+        <Guid>e0ca54c0319b49b7a9091126b55682e4</Guid>
         <Name>Read</Name>
         <Type>Read</Type>
         <Method>Load</Method>
       </DefaultMethod>
       <DefaultMethod>
-        <Guid>4d8821c72652485b8748e210664370bb</Guid>
+        <Guid>9248814054ba4cbb9bd9cb74fe1ad8da</Guid>
         <Name>List</Name>
         <Type>List</Type>
         <Method>GetList</Method>
       </DefaultMethod>
       <DefaultMethod>
-        <Guid>5ebf4559590f49509898480fb752eabb</Guid>
+        <Guid>547fb46158ad4e0a831caea3015f1d40</Guid>
         <Name>Report</Name>
         <Type>Report</Type>
         <Method>GetList</Method>
       </DefaultMethod>
     </DefaultMethods>
-    <Guid>ecd698fca5d74ec0a7fecfe32affba36</Guid>
+    <Guid>b7305f25eadd449daaf8ce194c361943</Guid>
   </Default>
   <Lookup>
-    <Guid>6b3257267eba49babc833b6c9fad29c6</Guid>
+    <Guid>6fcccd47ca854f139d46278e973355a8</Guid>
   </Lookup>
-  <Guid>60fdcf9dc91941beb86c11b64f975003</Guid>
+  <Guid>29588d014e0c4ef7b9360378a24d0109</Guid>
   <Name>K2Field_SmartForms_Authorization_Rules</Name>
+  <Version>1</Version>
   <IsExtendible>1</IsExtendible>
   <Types>&lt;types&gt;&lt;type&gt;user&lt;/type&gt;&lt;/types&gt;</Types>
   <Published>1</Published>
