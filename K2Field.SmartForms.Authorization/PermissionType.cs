@@ -1,9 +1,18 @@
-﻿namespace K2Field.SmartForms.Authorization
+﻿using System;
+
+namespace K2Field.SmartForms.Authorization
 {
-	public enum PermissionType
+    #region Permission Type Enum
+
+    [Flags]
+    public enum PermissionType
 	{
-		NotApplicable = 0,
-		Allow = 1,
-		Deny = 2
+		View = 1,
+		Create = 2,
+		Edit = 3,
+        Delete = 4,
+        Full = -1
 	}
+
+    #endregion
 }

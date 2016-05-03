@@ -22,262 +22,461 @@
 
 namespace K2Field.SmartForms.Authorization
 {
-	using SourceCode.Forms.AppFramework;
-	using System;
-	using System.Configuration;
-	using System.IO;
-	using System.Web;
+    using SourceCode.Forms.AppFramework;
+    using System;
+    using System.Configuration;
+    using System.IO;
+    using System.Web;
+    using System.Runtime.Caching;
+    using System.Collections.Generic;
+    using System.Linq;
 
-	public class AuthorizationModule : IHttpModule
-	{
-		#region Fields
+    public class AuthorizationModule : IHttpModule
+    {
+        #region Fields
 
-		private static string _formRuntimeUrl;
-		private static string _viewRuntimeUrl;
-		//private static string _ajaxRuntimeUrl;
-		private static string _notAuthorizedUrl;
-		#endregion
+        private static string _formRuntimeUrl;
+        private static string _viewRuntimeUrl;
+        private static string _notAuthorizedUrl;
+        //private static string _ajaxRuntimeUrl;
 
-		#region Properties
+        private static string _logOutputFolder;
+        private static bool _enableLogging;
 
-		internal AuthorizationRuleCollection AuthorizationRules
-		{
-			get
-			{
-				return RuleProvider.GetRules();
-			}
-		}
+        private static PermissionType _requestedAccess;
 
-		internal static IAuthorizationIdentityResolver IdentityResolver { get; }
+        private static object _logSync = new object();
+        private static object _cacheSync = new object();
 
-		internal static IAuthorizationRuleProvider RuleProvider { get; }
+        private static readonly string _ruleCacheName = "AuthRuleCache";
+        private static readonly string _userAuthHistoryCacheName = "_Hist";
 
-		#endregion
-
-		#region Constructors
-
-		static AuthorizationModule()
-		{
-			Log("Info", "Initializing authorization module...");
-
-			_formRuntimeUrl = (ConfigurationManager.AppSettings["FormRuntimeUrl"] ?? "~/Runtime/Form.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
-			_viewRuntimeUrl = (ConfigurationManager.AppSettings["ViewRuntimeUrl"] ?? "~/Runtime/View.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
-
-			//_ajaxRuntimeUrl = ("~/Runtime/AJAXCall.ashx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
-			_notAuthorizedUrl = (ConfigurationManager.AppSettings["UnauthorisedAccessPath"] ?? "~/NotAuthorised.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
+        private static int _cacheRefreshInterval = 8;
 
 
-			//var typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.RuleProvider"] ?? "K2Field.SmartForms.Authorization.ConfigurationRuleProvider");
-			var typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.RuleProvider"] ?? "K2Field.SmartForms.Authorization.SmartObjectRuleProvider");
+        #endregion
 
+        #region Properties
 
-			Log("Info", "Creating authorization rule provider: {0}", typeName);
+        internal AuthorizationRuleCollection AuthorizationRules
+        {
+            get
+            {
+                return RuleProvider.GetRules(_enableLogging, FilePath, ref _logSync);
+            }
+        }
 
-			var type = Type.GetType(typeName);
-			RuleProvider = Activator.CreateInstance(type) as IAuthorizationRuleProvider;
+        internal static Interfaces.IAuthorizationIdentityResolver IdentityResolver { get; }
 
-			typeName = (ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.IdentityProvider"] ?? "K2Field.SmartForms.Authorization.AuthorizationIdentityResolver");
-			type = Type.GetType(typeName);
-			IdentityResolver = Activator.CreateInstance(type) as IAuthorizationIdentityResolver;
-		}
+        internal static Interfaces.IAuthorizationRuleProvider RuleProvider { get; }
 
-		#endregion
+        public static string FilePath
+        {
+            get
+            {
+                return (string.Format(@"{0}\AuthorizationModule {1}.log", _logOutputFolder, DateTime.Now.ToString("yyyy-MM-dd HHtt").ToLower()));
+            }
+        }
 
-		#region IHttpModule Members
+        #endregion
 
-		public void Dispose()
-		{
-		}
+        #region Constructors
 
-		public void Init(HttpApplication context)
-		{
-			Log("Info", "Registering for ASP.net pipeline events...");
-			context.AuthorizeRequest += OnAuthorizeRequest;
-		}
+        static AuthorizationModule()
+        {
+            _formRuntimeUrl = (ConfigurationManager.AppSettings["FormRuntimeUrl"] ?? "~/Runtime/Form.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
+            _viewRuntimeUrl = (ConfigurationManager.AppSettings["ViewRuntimeUrl"] ?? "~/Runtime/View.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
+            _notAuthorizedUrl = (ConfigurationManager.AppSettings["UnauthorisedAccessPath"] ?? "~/NotAuthorised.aspx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
+            //_ajaxRuntimeUrl = ("~/Runtime/AJAXCall.ashx").Replace("~", HttpRuntime.AppDomainAppVirtualPath);
 
-		#endregion
+            _logOutputFolder = (ConfigurationManager.AppSettings["AuthorizationModule.LogOutputFolder"] ?? "C:\\Debug");
+            if (_logOutputFolder.EndsWith("\\") == true)
+            {
+                _logOutputFolder = _logOutputFolder.Substring(0, _logOutputFolder.Length - 1);
+            }
+            _enableLogging = bool.Parse((ConfigurationManager.AppSettings["AuthorizationModule.EnableLogging"] ?? "true"));
 
-		#region Event Handlers
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Initializing authorization module...");
 
-		private void OnAuthorizeRequest(object sender, EventArgs e)
-		{
-			// Initialize variables
-			var request = (sender as HttpApplication)?.Context?.Request;
-			var fqn = string.Empty;
-			try { fqn = ConnectionClass.GetCurrentUser(); } catch (Exception ex) { fqn = ex.Message; }
-			var url = string.Empty;
-			try { url = request.RawUrl; } catch (Exception ex) { url = ex.Message; }
+            _cacheRefreshInterval = int.Parse((ConfigurationManager.AppSettings["AuthorizationModule.CacheRefreshInterval"] ?? "8"));
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Cache refresh interval (Hours): " + _cacheRefreshInterval.ToString());
 
-			// Check if authorized
-			if (!IsAuthorized(request))
-			{
-				// Log
-				Log("Warning", "Access UNAUTHORIZED, fqn={1}, url={0}, ", url, fqn);
+            var ruleProviderType = (ConfigurationManager.AppSettings["AuthorizationModule.RuleProvider"] ?? "K2Field.SmartForms.Authorization.SmartObjectRuleProvider");
+            //var ruleProviderType = (ConfigurationManager.AppSettings["AuthorizationModule.RuleProvider"] ?? "K2Field.SmartForms.Authorization.ConfigurationRuleProvider");
+            var type = Type.GetType(ruleProviderType);
+            RuleProvider = Activator.CreateInstance(type) as Interfaces.IAuthorizationRuleProvider;
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Created authorization rule provider: " + ruleProviderType.ToString());
 
-				// Redirect
-				HttpContext.Current.Response.Redirect(_notAuthorizedUrl, true);
-			}
-			else
-			{
-				Log("Debug", "Access authorized, fqn={1}, url={0}", url, fqn);
-			}
-		}
+            var identityProviderType = (ConfigurationManager.AppSettings["AuthorizationModule.IdentityProvider"] ?? "K2Field.SmartForms.Authorization.AuthorizationIdentityResolver");
+            type = Type.GetType(identityProviderType);
+            IdentityResolver = Activator.CreateInstance(type) as Interfaces.IAuthorizationIdentityResolver;
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Created identity provider: " + identityProviderType.ToString());
+        }
 
-		#endregion
+        #endregion
 
-		#region Helpers
+        #region IHttpModule Members
 
-		private static bool IsAuthorized(HttpRequest request)
-		{
-			// Argument checking
-			if (request == null) throw new ArgumentNullException("request");
+        public void Dispose()
+        {
+        }
 
-			string guidString;
-			string url = request.FilePath;
-			string fqn = ConnectionClass.GetCurrentUser();
-			
-			if (!string.IsNullOrEmpty(url))
-			{
-				// Dont need to check vanity urls because the UrlWriter module already rewrote them to the actual urls
-				// Need to check both QueryString and Form variables because runtime supports both
+        public void Init(HttpApplication context)
+        {
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Init", "Info", "Registering for ASP.net pipeline events...");
+            context.AuthorizeRequest += OnAuthorizeRequest;
+        }
 
-				#region Check for anonymous forms and views
+        #endregion
 
-				var isFormUrl = url.Equals(_formRuntimeUrl, StringComparison.OrdinalIgnoreCase);
-				var isViewUrl = url.Equals(_viewRuntimeUrl, StringComparison.OrdinalIgnoreCase);
+        #region Event Handlers
 
-				if (isFormUrl || isViewUrl)
-				{
-					bool isAuthorized = false;
-					string name = request.QueryString["_Name"];
+        private void OnAuthorizeRequest(object sender, EventArgs e)
+        {
+            // Initialize variables
+            string userFQN = string.Empty;
+            string requestedSecurableURL = string.Empty;
 
-					if (!string.IsNullOrEmpty(name))
-					{
-						isAuthorized = isFormUrl
-							? IsAuthorized(fqn, ResourceTypes.Form, name)
-							: IsAuthorized(fqn, ResourceTypes.View, name);
-					}
-					else
-					{
-						guidString = request.QueryString["_ID"];
-						Guid guid;
-						if (!string.IsNullOrEmpty(guidString) && Guid.TryParse(guidString, out guid))
-						{
-							isAuthorized = isFormUrl
-								? IsAuthorized(fqn, ResourceTypes.Form, guid)
-								: IsAuthorized(fqn, ResourceTypes.View, guid);
+            try
+            {
+                var request = (sender as HttpApplication)?.Context?.Request;
 
-						}
-					}
-					return isAuthorized;
-				}
+                userFQN = ConnectionClass.GetCurrentUser();
+                requestedSecurableURL = request.RawUrl;
+                //Helpers.Logfile.Log(_enableLogging, FilePath, ref _sync, "AuthorizationModule", "OnAuthorizeRequest", "Info", "Requested URL: " + requestedSecurableURL);
 
-				#endregion
+                if (requestedSecurableURL.Equals(_notAuthorizedUrl, StringComparison.OrdinalIgnoreCase) == false)
+                {
+                    // Check if authorized
+                    if (!IsAuthorized(request))
+                    {
+                        // Log
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Warning", "User UNAUTHORIZED");
 
-				//#region Check for Runtime AJAX handler
+                        try
+                        {
+                            // Redirect
+                            HttpContext.Current.Response.Redirect(_notAuthorizedUrl, true);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Info", "User authorized");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Error", "Exception occured: " + ex.ToString());
+                throw;
+            }
+        }
 
-				//var isAjaxUrl = url.Equals(_ajaxRuntimeUrl, StringComparison.OrdinalIgnoreCase);
+        #endregion
 
-				//if (isAjaxUrl)
-				//{
-				//	// Get the current View/Form guid from the token and check
-				//	// if the anonymous cache contains the SMO items for it
-				//	Guid currentGuid = new Guid(guidString);
-				//	string anonItemKey = guidString + "_" + state;
-				//	if (!AnonymousSMOs.ContainsKey(anonItemKey))
-				//	{
-				//		// If the AnonymousSMOs does not contain the form or view Guid due to Appool recycle etc, we try get them from the actual Form/view 
-				//		UpdateAnonymousSMOsFromFormOrView(currentGuid, tokenType, state);
-				//	}
+        #region Helpers
 
-				//	if (AnonymousSMOs[anonItemKey] == null)
-				//	{
-				//		return false;
-				//	}
-				//	return true;
-				//}
+        #region Is Authorized
 
-				//#endregion
-			}
+        private static bool IsAuthorized(HttpRequest request)
+        {
+            bool isAuthorized = false;
+            bool isCached = false;
+            string guidString = string.Empty;
+            string requestedSecurableURL = string.Empty;
+            SecurableType requestedSecurableType = SecurableType.Form;
+            string userFQN = string.Empty;
+            string userAuthCacheName = string.Empty;
+            string requestedSecurableName = string.Empty;
 
-			// Anything not handled by previous cases are considered authorized by default
-			return true;
-		}
+            List<AuthorizationResult> userAuthorizations = null;
 
-		private static bool IsAuthorized(string fqn, ResourceTypes type, string name)
-		{
-			var rules = RuleProvider.GetRules();
+            try
+            {
+                requestedSecurableURL = request.FilePath;
+                userFQN = ConnectionClass.GetCurrentUser();
 
-			var identities = new string[] { fqn };
+                if (request == null)
+                {
+                    throw new ArgumentNullException("request");
+                }
 
-			return rules.IsAuthorized(name, type, identities);
-		}
+                if (!string.IsNullOrEmpty(requestedSecurableURL))
+                {
+                    // Dont need to check vanity urls because the UrlWriter module already rewrote them to the actual urls
+                    // Need to check both QueryString and Form variables because runtime supports both
 
-		private static bool IsAuthorized(string fqn, ResourceTypes type, Guid guid)
-		{
-			var name = default(string);
-			var asAppPool = ConnectionClass.ConnectAsAppPool;
-			if (!asAppPool) ConnectionClass.ConnectAsAppPool = true;
-			var client = ConnectionClass.GetFormsClient();
-			if (!asAppPool) ConnectionClass.ConnectAsAppPool = false;
+                    #region Check for anonymous forms and views
 
-			var identities = IdentityResolver.GetIdentities(fqn);
-			var rules = RuleProvider.GetRules();
+                    var isFormUrl = requestedSecurableURL.Equals(_formRuntimeUrl, StringComparison.OrdinalIgnoreCase);
+                    var isViewUrl = requestedSecurableURL.Equals(_viewRuntimeUrl, StringComparison.OrdinalIgnoreCase);
 
-			switch (type)
-			{
-				case ResourceTypes.View:
-					{
-						// Uses internal caches
-						var details = client.GetForm(guid);
-						if (details != null)
-						{
-							name = details.Name;
-						}
-					}
-					break;
-				case ResourceTypes.Form:
-					{
-						// Uses internal caches
-						var details = client.GetForm(guid);
-						if (details != null)
-						{
-							name = details.Name;
-						}
-					}
-					break;
-				default:
-					throw new NotSupportedException(type.ToString()); 
-			}
+                    if (isFormUrl || isViewUrl)
+                    {
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Requested URL: " + requestedSecurableURL);
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "User FQN: " + userFQN);
 
-			if (!string.IsNullOrEmpty(name))
-				return rules.IsAuthorized(name, type, identities);
-			else
-				return false;
-		}
+                        if (isViewUrl == true)
+                        {
+                            requestedSecurableType = SecurableType.View;
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Securable is a View");
+                        }
 
-		#endregion
+                        if (isFormUrl == true)
+                        {
+                            requestedSecurableType = SecurableType.Form;
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Securable is a Form");
+                        }
 
-		#region Logging
+                        userAuthCacheName = userFQN.ToUpper() + _userAuthHistoryCacheName.ToUpper();
 
-		private static object _sync = new object();
-		public static string FilePath { get; } = string.Format(@"C:\Debug\K2Field.Authorization.{0}.log", DateTime.Now.ToString("yyyy-MM-dd HHmmss"));
+                        // Based on the URL we are setting the requested access to View
+                        _requestedAccess = PermissionType.View;
+                        requestedSecurableName = request.QueryString["_Name"];
 
-		public static void Log(string category, string message, params object[] arguments)
-		{
-			var text = string.Format("{0}\t[{1}]\t{2}", DateTime.Now.ToString("o"), category, string.Format(message, arguments));
-			lock (_sync)
-			{
-				using (var stream = new FileStream(FilePath, FileMode.Append, FileAccess.Write, FileShare.Write))
-				{
-					using (var writer = new StreamWriter(stream))
-					{
-						writer.WriteLine(text);
-					}
-				}
-			}
-		}
+                        if (string.IsNullOrEmpty(requestedSecurableName) == true)
+                        {
+                            guidString = request.QueryString["_ID"];
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Requested securable GUID : " + guidString);
+                            Guid requestedSecurableGUID;
 
-		#endregion
-	}
+                            if (!string.IsNullOrEmpty(guidString) && Guid.TryParse(guidString, out requestedSecurableGUID))
+                            {
+                                requestedSecurableName = GetSecurableName(requestedSecurableType, requestedSecurableGUID);
+                            }
+                            else
+                            {
+                                throw new Exception("Unable to determine name of securable");
+                            }
+                        }
+
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Requested securable name : " + requestedSecurableName);
+
+                        if (MemoryCache.Default.Get(userAuthCacheName) != null)
+                        {
+                            userAuthorizations = (List<AuthorizationResult>)MemoryCache.Default.Get(userAuthCacheName);
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Loaded " + userAuthorizations.Count().ToString() + " authorization results from cache");
+
+                            var authorizationResult = (from ar in userAuthorizations
+                                                       where ((ar.SecurableName.ToLower().Equals(requestedSecurableName.ToLower(), StringComparison.OrdinalIgnoreCase)) && (ar.SecurableType == requestedSecurableType))
+                                                       select ar).FirstOrDefault();
+
+                            if (authorizationResult != null)
+                            {
+                                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cached authentication for requested securable was found");
+
+                                lock (_cacheSync)
+                                {
+                                    var index = userAuthorizations.IndexOf(authorizationResult);
+                                    isAuthorized = userAuthorizations[index].Authorized;
+                                    userAuthorizations[index].Timestamp = DateTime.Now;
+                                    userAuthorizations.RemoveAll(ar => ar.Timestamp < DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    MemoryCache.Default.Remove(userAuthCacheName);
+                                    MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddHours(_cacheRefreshInterval));
+                                }
+
+                                isCached = true;
+
+                                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cache sanitized and updated");
+                            }
+                        }
+
+                        if (isCached == false)
+                        {
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cached authentication for requested securable was not found");
+                            isAuthorized = IsAuthorizedByName(userFQN, requestedSecurableType, requestedSecurableName, _requestedAccess);
+
+                            lock (_cacheSync)
+                            {
+                                if (MemoryCache.Default.Get(userAuthCacheName) != null)
+                                {
+                                    userAuthorizations = (List<AuthorizationResult>)MemoryCache.Default.Get(userAuthCacheName);
+                                    userAuthorizations.Add(new AuthorizationResult(requestedSecurableName.ToLower(), requestedSecurableType, isAuthorized, DateTime.Now));
+                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    MemoryCache.Default.Remove(userAuthCacheName);
+                                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Added new authentication result to cache for user");
+                                }
+                                else
+                                {
+                                    userAuthorizations = new List<AuthorizationResult>();
+                                    userAuthorizations.Add(new AuthorizationResult(requestedSecurableName.ToLower(), requestedSecurableType, isAuthorized, DateTime.Now));
+
+                                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Created new authorization cache for user");
+                                }
+
+                                MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddHours(_cacheRefreshInterval));
+                            }
+
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cache sanitized and updated");
+                        }
+                    }
+                    else
+                    {
+                        isAuthorized = true;
+                        //Helpers.Logfile.Log(_enableLogging, FilePath, ref _sync, "AuthorizationModule", "IsAuthorized", "Info", "Authorization not required for: " + requestedSecurableURL);
+                    }
+
+                    #endregion
+
+                    #region Check for Runtime AJAX handler
+
+                    //var isAjaxUrl = url.Equals(_ajaxRuntimeUrl, StringComparison.OrdinalIgnoreCase);
+
+                    //if (isAjaxUrl)
+                    //{
+                    //	// Get the current View/Form guid from the token and check
+                    //	// if the anonymous cache contains the SMO items for it
+                    //	Guid currentGuid = new Guid(guidString);
+                    //	string anonItemKey = guidString + "_" + state;
+                    //	if (!AnonymousSMOs.ContainsKey(anonItemKey))
+                    //	{
+                    //		// If the AnonymousSMOs does not contain the form or view Guid due to Appool recycle etc, we try get them from the actual Form/view 
+                    //		UpdateAnonymousSMOsFromFormOrView(currentGuid, tokenType, state);
+                    //	}
+
+                    //	if (AnonymousSMOs[anonItemKey] == null)
+                    //	{
+                    //		return false;
+                    //	}
+                    //	return true;
+                    //}
+
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Error", "Exception occured: " + ex.ToString());
+                throw;
+            }
+
+            return isAuthorized;
+        }
+
+        #endregion
+
+        #region Is Authorized By Name
+
+        private static bool IsAuthorizedByName(string userFQN, SecurableType requestedSecurableType, string requestedSecurableName, PermissionType requestedAccess)
+        {
+            bool isAuthorized = false;
+
+            try
+            {
+                var rules = GetAuthorizationRules();
+                var identities = IdentityResolver.GetIdentities(_enableLogging, FilePath, ref _logSync, userFQN);
+
+                isAuthorized = rules.IsAuthorized(_enableLogging, FilePath, ref _logSync, requestedSecurableName, requestedSecurableType, identities, requestedAccess);
+            }
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorizedByName", "Error", "Exception occured: " + ex.ToString());
+                throw;
+            }
+
+            return isAuthorized;
+        }
+
+        #endregion
+
+        #region Get Securable Name
+
+        private static string GetSecurableName(SecurableType requestedSecurableType, Guid requestedSecurableGUID)
+        {
+            string securableName = string.Empty;
+
+            try
+            {
+                var asAppPool = ConnectionClass.ConnectAsAppPool;
+
+                if (!asAppPool)
+                {
+                    ConnectionClass.ConnectAsAppPool = true;
+                }
+
+                var client = ConnectionClass.GetFormsClient();
+                if (!asAppPool)
+                {
+                    ConnectionClass.ConnectAsAppPool = false;
+                }
+
+                switch (requestedSecurableType)
+                {
+                    case SecurableType.View:
+                        {
+                            // Uses internal caches
+                            var viewDetails = client.GetView(requestedSecurableGUID);
+                            if (viewDetails != null)
+                            {
+                                securableName = viewDetails.Name;
+                            }
+
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetSecurableName", "Info", "View name: " + securableName);
+                        }
+                        break;
+                    case SecurableType.Form:
+                        {
+                            // Uses internal caches
+                            var formDetails = client.GetForm(requestedSecurableGUID);
+                            if (formDetails != null)
+                            {
+                                securableName = formDetails.Name;
+                            }
+
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetSecurableName", "Info", "Form name: " + securableName);
+                        }
+                        break;
+                    default:
+                        throw new NotSupportedException(requestedSecurableType.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetSecurableName", "Error", "Exception occured: " + ex.ToString());
+                throw;
+            }
+
+            return securableName;
+        }
+
+        #endregion
+
+        #region Get Authorization Rules
+
+        private static AuthorizationRuleCollection GetAuthorizationRules()
+        {
+            AuthorizationRuleCollection ruleStore = null;
+            DateTime cacheExperiration;
+
+            try
+            {
+
+                if (MemoryCache.Default.Get(_ruleCacheName) == null)
+                {
+                    cacheExperiration = DateTime.Now.AddHours(_cacheRefreshInterval);
+                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetAuthorizationRules", "Info", "Authenticaiton rule cache is expired or empty. Reloading cache...");
+                    ruleStore = RuleProvider.GetRules(_enableLogging, FilePath, ref _logSync);
+                    MemoryCache.Default.Add(_ruleCacheName, ruleStore, cacheExperiration);
+                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetAuthorizationRules", "Info", "Authenticaiton rule cache reloaded successfully. Cache expires at " + cacheExperiration.ToString());
+                }
+                else
+                {
+                    ruleStore = (AuthorizationRuleCollection)MemoryCache.Default.Get(_ruleCacheName);
+                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetAuthorizationRules", "Info", "Authenticaiton rule loaded from cache");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetAuthorizationRules", "Error", "Exception occured: " + ex.ToString());
+                throw;
+            }
+
+            return ruleStore;
+        }
+        #endregion
+
+        #endregion
+    }
 }

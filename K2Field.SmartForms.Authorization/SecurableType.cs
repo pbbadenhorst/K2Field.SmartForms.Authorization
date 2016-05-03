@@ -2,15 +2,15 @@
 
 namespace K2Field.SmartForms.Authorization
 {
-	[Flags]
-	public enum ResourceTypes
+    #region Securable Type Enum
+
+    [Flags]
+	public enum SecurableType
 	{
-		None = 0,
 		View = 1,
 		Form = 2,
-		//SmartObject = 4,
-		//Category = 8,
+		FormView = -1
+    }
 
-		All = -1
-	}
+    #endregion
 }

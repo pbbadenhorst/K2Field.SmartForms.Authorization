@@ -71,12 +71,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthorizationIdentityResolver.cs" />
+    <Compile Include="AuthorizationResult.cs" />
     <Compile Include="AuthorizationRule.cs" />
     <Compile Include="AuthorizationRuleCollection.cs" />
     <Compile Include="ConfigurationRuleProvider.cs" />
     <Compile Include="Helpers\Logfile.cs" />
-    <Compile Include="IAuthorizationRuleProvider.cs" />
-    <Compile Include="IAuthorizationIdentityResolver.cs" />
+    <Compile Include="Interfaces\IAuthorizationRuleProvider.cs" />
+    <Compile Include="Interfaces\IAuthorizationIdentityResolver.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="PermissionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,12 +91,12 @@
     <Compile Include="SmartObjectRuleProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Application\Authorization Module 05032016.kspx" />
     <None Include="FieldKey.snk" />
     <None Include="packages.config" />
-    <None Include="SmartObjects\K2Field.SmartForms.Authorization.Rules.sodx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Scripts\tables.sql" />
+    <Content Include="Application\PopulateDropdowns.sql" />
     <Content Include="TODO.txt" />
   </ItemGroup>
   <ItemGroup>

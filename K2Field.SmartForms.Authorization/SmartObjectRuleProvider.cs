@@ -1,70 +1,123 @@
 ﻿using SourceCode.Forms.AppFramework;
 using System.Configuration;
+using System;
 
 namespace K2Field.SmartForms.Authorization
 {
-	class SmartObjectRuleProvider : IAuthorizationRuleProvider
+    /// <summary>
+    /// Represents a configuration K2 SmartObject based authorization rule provider implementing the <see cref="IAuthorizationRuleProvider"/> interface.
+    /// </summary>
+    class SmartObjectRuleProvider : Interfaces.IAuthorizationRuleProvider
 	{
-		public SmartObjectRuleProvider()
+        #region Constructors
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SmartObjectRuleProvider"/> class.
+        /// </summary>
+        public SmartObjectRuleProvider()
 		{
-			RulesSmartObjectName = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Name"] ?? "K2Field_SmartForms_Authorization_Rules";
-			RulesSmartObjectMethod = ConfigurationManager.AppSettings["K2Field.SmartForms.Authorization.SmartObjectRuleProvider.SmartObject.Method"] ?? "GetList";
+			RulesSmartObjectName = ConfigurationManager.AppSettings["AuthorizationModule.SmartObjectName"] ?? "AM_RuleStore";
+			RulesSmartObjectMethod = ConfigurationManager.AppSettings["AuthorizationModule.SmartObjectMethod"] ?? "GetList";
 		}
 
-		private string RulesSmartObjectName { get; }
+        #endregion
+
+        #region Properties
+
+        private string RulesSmartObjectName { get; }
+
 		private string RulesSmartObjectMethod { get; }
 
-		public AuthorizationRuleCollection GetRules()
+        #endregion
+
+        #region Metods
+
+        #region Get Rules
+
+        /// <summary>
+        /// Gets a collection of authorization rules defined for K2 smartforms Runtime web-app which stored in a SmartObject.
+        /// </summary>
+        /// <param name="enableLogging">A flag to indicate whether or not logging has been enabled.</param>
+        /// <param name="filePath">The path where the log file resides, or should be created.</param>
+        /// <param name="logSync">The thread synchronization object for writting to the log file.</param>
+        /// <returns>Returns <see cref="AuthorizationRuleCollection"/> containing auhtorization rules that has been specified for the K2 smartforms Runtime web-app.</returns>
+        public AuthorizationRuleCollection GetRules(bool enableLogging, string filePath, ref object logSync)
 		{
 			// TODO: Cache
 
 			var original = ConnectionClass.ConnectAsAppPool;
+
 			try
 			{
 				ConnectionClass.ConnectAsAppPool = true;
-				var client = ConnectionClass.GetSmartObjectClient();
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Trying to connect to SmartObject Server...");
+                var client = ConnectionClass.GetSmartObjectClient();
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Connected to " + client.Connection.Host + " on port " + client.Connection.Port.ToString());
 
-				var smo = client.GetSmartObject(RulesSmartObjectName);
+                var smo = client.GetSmartObject(RulesSmartObjectName);
 				smo.MethodToExecute = RulesSmartObjectMethod;
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Successfully executed method " + RulesSmartObjectMethod + " Rule SmartObject " + RulesSmartObjectName);
 
-				var rules = new AuthorizationRuleCollection();
+                var rules = new AuthorizationRuleCollection();
 
 				using (var reader = client.ExecuteListReader(smo))
 				{
-					var ordinalIdentities = reader.GetOrdinal("Identities");
-					var ordinalResources = reader.GetOrdinal("Resources");
-					var ordinalResourceType = reader.GetOrdinal("ResourceType");
-					var ordinalAllow = reader.GetOrdinal("Allow");
+					var ordinalIdentityPattern = reader.GetOrdinal("Identity Pattern");
+					var ordinalSecurablePattern = reader.GetOrdinal("Securable Pattern");
+					var ordinalSecurableType = reader.GetOrdinal("Securable Type");
+					var ordinalPermissionType = reader.GetOrdinal("Permission Type");
 
-					string resources;
-					long resourceType;
-					bool allow;
-					string identities;
+                    string identityPattern;
+                    string securablePattern;
+					long securableType;
+					long permissionType;
 
 					while (reader.Read())
 					{
 
-						if (!reader.IsDBNull(ordinalResources)) resources = reader.GetString(ordinalResources); else continue;
-						if (!reader.IsDBNull(ordinalResourceType)) resourceType = reader.GetInt64(ordinalResourceType); else continue;
-						if (!reader.IsDBNull(ordinalAllow)) allow = reader.GetBoolean(ordinalAllow); else continue;
-						if (!reader.IsDBNull(ordinalIdentities)) identities = reader.GetString(ordinalIdentities); else continue;
+                        if (!reader.IsDBNull(ordinalIdentityPattern)) identityPattern = reader.GetString(ordinalIdentityPattern); else continue;
+                        if (!reader.IsDBNull(ordinalSecurablePattern)) securablePattern = reader.GetString(ordinalSecurablePattern); else continue;
+						if (!reader.IsDBNull(ordinalSecurableType)) securableType = reader.GetInt64(ordinalSecurableType); else continue;
+						if (!reader.IsDBNull(ordinalPermissionType)) permissionType = reader.GetInt64(ordinalPermissionType); else continue;
 
 						var rule = new AuthorizationRule(
-							resources.Split(',', ';'),
-							(ResourceTypes)resourceType,
-							allow ? PermissionType.Allow : PermissionType.Deny,
-							identities.Split(',', ';')
+                            securablePattern.Split(',', ';'),
+							(SecurableType)securableType,
+							(PermissionType)permissionType,
+                            identityPattern.Split(',', ';')
 							);
 						rules.Add(rule);
-					}
-				}
 
-				return rules;
+                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Add Rule: Identity Pattern=" + identityPattern + "; Securable Pattern=" + securablePattern + "; Securable Type=" + securableType + "; Permission Type=" + permissionType);
+                    }
+                }
+
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Number of authorization rules: " + rules.Count.ToString());
+                return rules;
 			}
-			finally
-			{
+            catch (Exception ex)
+            {
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Error", "Exception occurred: " + ex.ToString());
+                throw;
+            }
+            finally
+            {
 				ConnectionClass.ConnectAsAppPool = original;
 			}
 		}
-	}
+
+        /// <summary>
+        /// Gets a collection of authorization rules defined for K2 smartforms Runtime web-app which stored in a SmartObject.
+        /// </summary>
+        /// <returns>Returns <see cref="AuthorizationRuleCollection"/> containing auhtorization rules that has been specified for the K2 smartforms Runtime web-app.</returns>
+        public AuthorizationRuleCollection GetRules()
+        {
+            var empty = new object();
+            return GetRules(false, string.Empty, ref empty);
+        }
+
+        #endregion
+
+        #endregion
+    }
 }
