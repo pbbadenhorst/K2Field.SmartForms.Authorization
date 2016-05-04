@@ -62,11 +62,13 @@ namespace K2Field.SmartForms.Authorization
 
 				using (var reader = client.ExecuteListReader(smo))
 				{
-					var ordinalIdentityPattern = reader.GetOrdinal("Identity Pattern");
+                    var ordinalRuleStoreID = reader.GetOrdinal("Rule Store ID");
+                    var ordinalIdentityPattern = reader.GetOrdinal("Identity Pattern");
 					var ordinalSecurablePattern = reader.GetOrdinal("Securable Pattern");
 					var ordinalSecurableType = reader.GetOrdinal("Securable Type");
 					var ordinalPermissionType = reader.GetOrdinal("Permission Type");
 
+                    long ruleStoreID;
                     string identityPattern;
                     string securablePattern;
 					long securableType;
@@ -75,12 +77,14 @@ namespace K2Field.SmartForms.Authorization
 					while (reader.Read())
 					{
 
+                        if (!reader.IsDBNull(ordinalSecurableType)) ruleStoreID = reader.GetInt64(ordinalRuleStoreID); else continue;
                         if (!reader.IsDBNull(ordinalIdentityPattern)) identityPattern = reader.GetString(ordinalIdentityPattern); else continue;
                         if (!reader.IsDBNull(ordinalSecurablePattern)) securablePattern = reader.GetString(ordinalSecurablePattern); else continue;
 						if (!reader.IsDBNull(ordinalSecurableType)) securableType = reader.GetInt64(ordinalSecurableType); else continue;
 						if (!reader.IsDBNull(ordinalPermissionType)) permissionType = reader.GetInt64(ordinalPermissionType); else continue;
 
 						var rule = new AuthorizationRule(
+                            ruleStoreID,
                             securablePattern.Split(',', ';'),
 							(SecurableType)securableType,
 							(PermissionType)permissionType,
@@ -88,7 +92,7 @@ namespace K2Field.SmartForms.Authorization
 							);
 						rules.Add(rule);
 
-                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Add Rule: Identity Pattern=" + identityPattern + "; Securable Pattern=" + securablePattern + "; Securable Type=" + securableType + "; Permission Type=" + permissionType);
+                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "SmartObjectRuleProvider", "GetRules", "Info", "Add Rule: Rule Store ID = " + ruleStoreID.ToString() + ";Identity Pattern=" + identityPattern + "; Securable Pattern=" + securablePattern + "; Securable Type=" + securableType + "; Permission Type=" + permissionType);
                     }
                 }
 

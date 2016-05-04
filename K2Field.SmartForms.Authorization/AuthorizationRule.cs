@@ -18,7 +18,7 @@ namespace K2Field.SmartForms.Authorization
         /// <param name="securableType">The type of K2 resource that is secured.</param>
         /// <param name="permissionType">Type of the permission that is granted.</param>
         /// <param name="identityPatterns">The pattern that the rule applies to as a list of one or more identity names (names with *, % for wildcards supported) for the a user.</param>
-        public AuthorizationRule(IEnumerable<string> securablePatterns, SecurableType securableType, PermissionType permissionType, IEnumerable<string> identityPatterns)
+        public AuthorizationRule(long ruleID, IEnumerable<string> securablePatterns, SecurableType securableType, PermissionType permissionType, IEnumerable<string> identityPatterns)
 		{
 			// Argument checking
 			if (securablePatterns == null) throw new ArgumentNullException("securablePatterns");
@@ -53,6 +53,7 @@ namespace K2Field.SmartForms.Authorization
 				throw new ArgumentException(Properties.Resources.AtLeastOneResourceNameOrPatternIsRequired);
 			}
 
+            this.ID = ruleID;
 			this.SecurableType = securableType;
 			this.PermissionType = permissionType;
 			this.Identities = new HashSet<string>(identityPatterns, StringComparer.OrdinalIgnoreCase);
@@ -89,11 +90,17 @@ namespace K2Field.SmartForms.Authorization
         #region Properties
 
         public HashSet<string> Identities { get; }
+
 		public IList<Regex> IdentityPatterns { get; }
 
+        public long ID { get; }
+
 		public HashSet<string> Securables { get; }
+
 		public IList<Regex> SecurablePatterns { get; }
+
 		public SecurableType SecurableType { get; }
+
 		public PermissionType PermissionType { get; }
 
         #endregion
@@ -135,7 +142,7 @@ namespace K2Field.SmartForms.Authorization
 
                 // Check if the specified resource matches any of the resources specified id the rule
                 var match = (this.Securables.Contains(requestedSecurableName));
-                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Contain match on all Rule Securables to \"" + requestedSecurableName + "\"... Result: " + match.ToString());
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Contain match on all Rule Securables to \"" + requestedSecurableName + "\"... " + (match == true ? "SUCCESS" : "FAILED"));
 
                 if (!match)
                 {
@@ -145,7 +152,8 @@ namespace K2Field.SmartForms.Authorization
                         {
                             match = true;
                         }
-                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Matching securable pattern \"" + securablePattern + "\" to \"" + requestedSecurableName + "\"... Result: " + match.ToString());
+
+                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Matching securable pattern \"" + securablePattern + "\" to \"" + requestedSecurableName + "\"...  " + (match == true ? "SUCCESS" : "FAILED"));
                     }
                 }
 
@@ -156,12 +164,13 @@ namespace K2Field.SmartForms.Authorization
                     {
                         foreach (var identity in identities)
                         {
-                            Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Contain match on all Rule Identities to \"" + identity + "\"...");
                             if (this.Identities.Contains(identity) == true)
                             {
-                                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Success");
+                                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Contain match on all Rule Identities to \"" + identity + "\"... SUCCESS");
                                 return true;
                             }
+
+                            Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Contain match on all Rule Identities to \"" + identity + "\"... FAILED");
                         }
                     }
 
@@ -171,12 +180,13 @@ namespace K2Field.SmartForms.Authorization
                         {
                             foreach (var identity in identities)
                             {
-                                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Matching identity pattern \"" + identityPattern + "\" to \"" + identity + "\"...");
                                 if (identityPattern.IsMatch(identity) == true)
                                 {
-                                    Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Success");
+                                    Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Matching identity pattern \"" + identityPattern + "\" to \"" + identity + "\"... SUCCESS");
                                     return true;
                                 }
+
+                                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRule", "Matches", "Info", "Matching identity pattern \"" + identityPattern + "\" to \"" + identity + "\"... FAILED");
                             }
                         }
                     }

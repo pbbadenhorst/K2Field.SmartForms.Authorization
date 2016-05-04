@@ -30,13 +30,17 @@ namespace K2Field.SmartForms.Authorization
 			{
 				if (rule.Matches(enableLogging, filePath, ref logSync, identities, requestedSecurableName, requestedSecurableType, requestedAccess) == true)
 				{
-					// Matching allow found
-					isAuthorized = true;
+                    Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRuleCollection", "IsAuthorized", "Info", "Evaluating Rule " + rule.ID.ToString() + " ...  SUCCESS");
+
+                    // Matching allow found
+                    isAuthorized = true;
                     break;
 				}
-			}
 
-			return isAuthorized;
+                Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationRuleCollection", "IsAuthorized", "Info", "Evaluating Rule " + rule.ID.ToString() + " ...  FAILED");
+            }
+
+            return isAuthorized;
 		}
 
         #endregion

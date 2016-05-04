@@ -11,7 +11,7 @@
 //     <!-- snip -->
 //    
 //     <!-- Field Authorization module -->
-//     <add name = "FieldAuthorizationModule" type="K2Field.SmartForms.Authorization.AuthorizationModule, K2Field.SmartForms.Authorization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74c3737efa394b02" />
+//     <add name = "AuthorizationModule" type="K2Field.SmartForms.Authorization.AuthorizationModule, K2Field.SmartForms.Authorization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=74c3737efa394b02" />
 //    </modules>
 //    <!-- snip -->
 //   <//system.webServer>
@@ -123,13 +123,14 @@ namespace K2Field.SmartForms.Authorization
 
         public void Init(HttpApplication context)
         {
-            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Init", "Info", "Registering for ASP.net pipeline events...");
             context.AuthorizeRequest += OnAuthorizeRequest;
         }
 
         #endregion
 
         #region Event Handlers
+
+        #region On Authorize Request
 
         private void OnAuthorizeRequest(object sender, EventArgs e)
         {
@@ -151,7 +152,7 @@ namespace K2Field.SmartForms.Authorization
                     if (!IsAuthorized(request))
                     {
                         // Log
-                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Warning", "User UNAUTHORIZED");
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Warning", "Authorization FAILED");
 
                         try
                         {
@@ -159,10 +160,6 @@ namespace K2Field.SmartForms.Authorization
                             HttpContext.Current.Response.Redirect(_notAuthorizedUrl, true);
                         }
                         catch { }
-                    }
-                    else
-                    {
-                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Info", "User authorized");
                     }
                 }
             }
@@ -172,6 +169,8 @@ namespace K2Field.SmartForms.Authorization
                 throw;
             }
         }
+
+        #endregion
 
         #endregion
 
@@ -185,6 +184,7 @@ namespace K2Field.SmartForms.Authorization
             bool isCached = false;
             string guidString = string.Empty;
             string requestedSecurableURL = string.Empty;
+            string rawRequestedURL = string.Empty;
             SecurableType requestedSecurableType = SecurableType.Form;
             string userFQN = string.Empty;
             string userAuthCacheName = string.Empty;
@@ -194,6 +194,7 @@ namespace K2Field.SmartForms.Authorization
 
             try
             {
+                rawRequestedURL = request.RawUrl;
                 requestedSecurableURL = request.FilePath;
                 userFQN = ConnectionClass.GetCurrentUser();
 
@@ -214,7 +215,7 @@ namespace K2Field.SmartForms.Authorization
 
                     if (isFormUrl || isViewUrl)
                     {
-                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Requested URL: " + requestedSecurableURL);
+                        Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Requested URL: " + rawRequestedURL);
                         Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "User FQN: " + userFQN);
 
                         if (isViewUrl == true)
@@ -271,7 +272,7 @@ namespace K2Field.SmartForms.Authorization
                                     var index = userAuthorizations.IndexOf(authorizationResult);
                                     isAuthorized = userAuthorizations[index].Authorized;
                                     userAuthorizations[index].Timestamp = DateTime.Now;
-                                    userAuthorizations.RemoveAll(ar => ar.Timestamp < DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddHours(_cacheRefreshInterval));
                                     MemoryCache.Default.Remove(userAuthCacheName);
                                     MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddHours(_cacheRefreshInterval));
                                 }
@@ -310,11 +311,15 @@ namespace K2Field.SmartForms.Authorization
 
                             Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cache sanitized and updated");
                         }
+
+                        if (isAuthorized == true)
+                        {
+                            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Authorization SUCCEEDED");
+                        }
                     }
                     else
                     {
                         isAuthorized = true;
-                        //Helpers.Logfile.Log(_enableLogging, FilePath, ref _sync, "AuthorizationModule", "IsAuthorized", "Info", "Authorization not required for: " + requestedSecurableURL);
                     }
 
                     #endregion

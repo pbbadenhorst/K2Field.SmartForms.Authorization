@@ -27,7 +27,7 @@
         /// <param name="filePath">The path where the log file resides, or should be created.</param>
         /// <param name="logSync">The thread synchronization object for writting to the log file.</param>
         /// <returns>Returns <see cref="AuthorizationRuleCollection"/> containing auhtorization rules that has been specified for the K2 smartforms Runtime web-app.</returns>
-        AuthorizationRuleCollection Interfaces.IAuthorizationRuleProvider.GetRules(bool enableLogging, string filePath, ref object sync)
+        public AuthorizationRuleCollection GetRules(bool enableLogging, string filePath, ref object sync)
 		{
 			var rules = new AuthorizationRuleCollection();
 			return new AuthorizationRuleCollection();
@@ -37,7 +37,7 @@
         /// Gets a collection of authorization rules defined for K2 smartforms Runtime web-app which stored in a configuration file.
         /// </summary>
         /// <returns>Returns <see cref="AuthorizationRuleCollection"/> containing auhtorization rules that has been specified for the K2 smartforms Runtime web-app.</returns>
-        AuthorizationRuleCollection Interfaces.IAuthorizationRuleProvider.GetRules()
+        public AuthorizationRuleCollection GetRules()
         {
             var rules = new AuthorizationRuleCollection();
             return new AuthorizationRuleCollection();

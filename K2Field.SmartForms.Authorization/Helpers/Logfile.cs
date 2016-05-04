@@ -33,9 +33,9 @@ namespace K2Field.SmartForms.Authorization.Helpers
             {
                 lock (logSync)
                 {
-                    using (var stream = new io.FileStream(filePath, io.FileMode.Append, io.FileAccess.Write, io.FileShare.Write))
+                    using (var fileStream = new io.FileStream(filePath, io.FileMode.Append, io.FileAccess.Write, io.FileShare.Write))
                     {
-                        using (var writer = new io.StreamWriter(stream))
+                        using (var writer = new io.StreamWriter(fileStream))
                         {
                             writer.WriteLine(text);
                         }
