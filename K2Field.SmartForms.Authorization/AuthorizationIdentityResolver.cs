@@ -62,6 +62,8 @@ namespace K2Field.SmartForms.Authorization
                 var client = ConnectionClass.GetSmartObjectClient();
                 Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationIdentityResolver", "GetIdentities", "Info", "Connected to " + client.Connection.Host + " on port " + client.Connection.Port.ToString());
 
+                var username = userFQN.Split(':')[1];
+                var securityLabel = userFQN.Split(':')[0];
                 var smo = client.GetSmartObject(IdentitySmartObjectName);
                 smo.MethodToExecute = IdentitySmartObjectMethod;
                 smo.Properties["User_Name"].Value = userFQN.Split(':')[1];
@@ -76,8 +78,8 @@ namespace K2Field.SmartForms.Authorization
                     while (reader.Read())
                     {
                         if (!reader.IsDBNull(ordinalGroupName)) groupName = reader.GetString(ordinalGroupName); else continue;
-                        identities.Add(groupName);
-                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationIdentityResolver", "GetIdentities", "Info", "Add Identity: " + groupName);
+                        identities.Add(securityLabel + ":" + groupName);
+                        Helpers.Logfile.Log(enableLogging, filePath, ref logSync, "AuthorizationIdentityResolver", "GetIdentities", "Info", "Add Identity: " + securityLabel + ":" + groupName);
                     }
                 }
 

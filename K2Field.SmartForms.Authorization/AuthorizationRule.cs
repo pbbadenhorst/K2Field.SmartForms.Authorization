@@ -124,7 +124,7 @@ namespace K2Field.SmartForms.Authorization
 		{
             try
             {
-                if ((requestedSecurableType != this.SecurableType) || (requestedAccess != this.PermissionType))
+                if (((requestedSecurableType != this.SecurableType) && (this.SecurableType != SecurableType.FormView)) || (requestedAccess != this.PermissionType))
                 {
                     if (enableLogging == true)
                     {

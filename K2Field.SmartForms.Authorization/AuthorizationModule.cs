@@ -30,6 +30,7 @@ namespace K2Field.SmartForms.Authorization
     using System.Runtime.Caching;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Diagnostics;
 
     public class AuthorizationModule : IHttpModule
     {
@@ -42,6 +43,7 @@ namespace K2Field.SmartForms.Authorization
 
         private static string _logOutputFolder;
         private static bool _enableLogging;
+        private static bool _writeToEventLog;
 
         private static PermissionType _requestedAccess;
 
@@ -94,12 +96,14 @@ namespace K2Field.SmartForms.Authorization
             {
                 _logOutputFolder = _logOutputFolder.Substring(0, _logOutputFolder.Length - 1);
             }
+
             _enableLogging = bool.Parse((ConfigurationManager.AppSettings["AuthorizationModule.EnableLogging"] ?? "true"));
+            _writeToEventLog = bool.Parse((ConfigurationManager.AppSettings["AuthorizationModule.WriteToEventLog"] ?? "true"));
 
             Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Initializing authorization module...");
 
-            _cacheRefreshInterval = int.Parse((ConfigurationManager.AppSettings["AuthorizationModule.CacheRefreshInterval"] ?? "8"));
-            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Cache refresh interval (Hours): " + _cacheRefreshInterval.ToString());
+            _cacheRefreshInterval = int.Parse((ConfigurationManager.AppSettings["AuthorizationModule.CacheRefreshInterval"] ?? "600"));
+            Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "Constructor", "Info", "Cache refresh interval (Seconds): " + _cacheRefreshInterval.ToString());
 
             var ruleProviderType = (ConfigurationManager.AppSettings["AuthorizationModule.RuleProvider"] ?? "K2Field.SmartForms.Authorization.SmartObjectRuleProvider");
             //var ruleProviderType = (ConfigurationManager.AppSettings["AuthorizationModule.RuleProvider"] ?? "K2Field.SmartForms.Authorization.ConfigurationRuleProvider");
@@ -154,6 +158,15 @@ namespace K2Field.SmartForms.Authorization
                         // Log
                         Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Warning", "Authorization FAILED");
 
+                        if (_writeToEventLog == true)
+                        {
+                            using (EventLog eventLog = new EventLog("Application"))
+                            {
+                                eventLog.Source = "SourceCode.Logging.Extension.EventLogExtension";
+                                eventLog.WriteEntry("AUTHENTICATION FAILED. User " + userFQN + " requested access SmartForms resource \"" + requestedSecurableURL + "\" and access was denied", EventLogEntryType.Warning, 1, 1);
+                            }
+                        }
+
                         try
                         {
                             // Redirect
@@ -165,8 +178,11 @@ namespace K2Field.SmartForms.Authorization
             }
             catch (Exception ex)
             {
-                Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Error", "Exception occured: " + ex.ToString());
-                throw;
+                if (ex.GetType().ToString().Equals("System.Threading.ThreadAbortException", StringComparison.OrdinalIgnoreCase) == false)
+                {
+                    Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "OnAuthorizeRequest", "Error", "Exception occured: " + ex.ToString());
+                    throw;
+                }
             }
         }
 
@@ -272,9 +288,9 @@ namespace K2Field.SmartForms.Authorization
                                     var index = userAuthorizations.IndexOf(authorizationResult);
                                     isAuthorized = userAuthorizations[index].Authorized;
                                     userAuthorizations[index].Timestamp = DateTime.Now;
-                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddSeconds(_cacheRefreshInterval));
                                     MemoryCache.Default.Remove(userAuthCacheName);
-                                    MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddSeconds(_cacheRefreshInterval));
                                 }
 
                                 isCached = true;
@@ -294,7 +310,7 @@ namespace K2Field.SmartForms.Authorization
                                 {
                                     userAuthorizations = (List<AuthorizationResult>)MemoryCache.Default.Get(userAuthCacheName);
                                     userAuthorizations.Add(new AuthorizationResult(requestedSecurableName.ToLower(), requestedSecurableType, isAuthorized, DateTime.Now));
-                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddHours(_cacheRefreshInterval));
+                                    userAuthorizations.RemoveAll(ar => ar.Timestamp > DateTime.Now.AddSeconds(_cacheRefreshInterval));
                                     MemoryCache.Default.Remove(userAuthCacheName);
                                     Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Added new authentication result to cache for user");
                                 }
@@ -306,7 +322,7 @@ namespace K2Field.SmartForms.Authorization
                                     Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Created new authorization cache for user");
                                 }
 
-                                MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddHours(_cacheRefreshInterval));
+                                MemoryCache.Default.Add(userAuthCacheName, userAuthorizations, DateTime.Now.AddSeconds(_cacheRefreshInterval));
                             }
 
                             Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "IsAuthorized", "Info", "Cache sanitized and updated");
@@ -459,7 +475,7 @@ namespace K2Field.SmartForms.Authorization
 
                 if (MemoryCache.Default.Get(_ruleCacheName) == null)
                 {
-                    cacheExperiration = DateTime.Now.AddHours(_cacheRefreshInterval);
+                    cacheExperiration = DateTime.Now.AddSeconds(_cacheRefreshInterval);
                     Helpers.Logfile.Log(_enableLogging, FilePath, ref _logSync, "AuthorizationModule", "GetAuthorizationRules", "Info", "Authenticaiton rule cache is expired or empty. Reloading cache...");
                     ruleStore = RuleProvider.GetRules(_enableLogging, FilePath, ref _logSync);
                     MemoryCache.Default.Add(_ruleCacheName, ruleStore, cacheExperiration);
